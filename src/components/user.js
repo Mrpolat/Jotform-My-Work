@@ -7,7 +7,7 @@ function User() {
 
     useEffect(() => {
         axios.get('https://api.jotform.com/user?apiKey=8cc17c20fe79be24f60cb418bd2283fd')
-            .then(response =>{console.log(response)
+            .then(response =>{
              setUserName(response.data.content.username)}
             );
     }, []);

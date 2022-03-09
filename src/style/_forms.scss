@@ -1,21 +1,34 @@
 .jfForms{
-    background-color: #be2fce;
     border-radius: 2em;
-    width:240px;
-    padding: 10px;
+    width:330px;
+    height: 250px;
     margin:10px;
     cursor: pointer;
     text-align: center;
     font-weight: bold;
     display: inline-block;
-    box-shadow: 10px 5px 10px #888888;
-    &:hover{
-        background-color: #ff00f2;
-        transition: 0.5s;
+    box-shadow: 10px 5px 10px #888888;    
+    overflow: hidden;    
+    text-overflow: ellipsis;
+    position: relative;
+    &-jfImage{      
+        border-radius: 2em;        
+        width:350px;
+        height: 270px;  
+        background-repeat: no-repeat;
+        background-size: 350px 270px;
+        position: relative;
+        z-index: -999 !important;
     }
-    
-    .aLinks{
-        color: #fff;
-        text-decoration: none; 
+    .contentText{        
+        z-index: 1 !important;
+        text-align: center;
+        color: black;
+    } 
+    .title{
+        font-weight: bold;
+    }
+    .information{    
+
     }
 }
