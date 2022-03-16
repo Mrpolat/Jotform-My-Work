@@ -18,7 +18,7 @@ function Forms() {
         <div >
             {submissions.map(sub =>
 
-                <div className="jfForms " style={{ backgroundImage: `url()`, }}>
+                <div className="jfForms " key={"blabla"} style={{ backgroundImage: `url()`, }}>
                     <img className="jfForms-jfImage"src={sub.answers[4].answer[0]} alt="" />
                     <div className='contentText'>
                         <span className='title'>{sub.answers[7].answer}</span>

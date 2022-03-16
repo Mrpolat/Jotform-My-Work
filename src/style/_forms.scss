@@ -18,17 +18,24 @@
         background-repeat: no-repeat;
         background-size: 350px 270px;
         position: relative;
-        z-index: -999 !important;
+        margin:30px;
     }
     .contentText{        
-        z-index: 1 !important;
         text-align: center;
         color: black;
     } 
-    .title{
+    &-title{
         font-weight: bold;
+        display: inline-block;
+        position: absolute;
+        font-size: 100px;
+        margin: 50px;
+
     }
-    .information{    
+    &-information{    
+        padding: 30px;
+        font-size: 20px;
+        font-weight: bold;        
 
     }
 }
