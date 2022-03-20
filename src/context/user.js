@@ -13,11 +13,11 @@ export const UserProvider = ({ children }) => {
     const [userName, setUserName] = useState('polat');
 
     useEffect(() => {
-       user().then(response=>{console.log(response)
+       user().then(response=>{
         setUserName(response.data.content.username)
     })
       }, []);
-//promise !! 
+      
     return (
         <UserContext.Provider value={userName}>
             {children}

@@ -5,8 +5,6 @@ const Header = () => {
 
   const userName = useUser();
 
-  console.log(userName)
-
   return (
     <div className='jfHeader'> <h1 className='jfHeader-title'> jotform veteriner kliniği {userName}</h1></div>
   )

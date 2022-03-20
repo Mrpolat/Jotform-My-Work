@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
-import Header from '../components/Header/header'
-import MainSection from '../components/MainSection/mainSection'
-import SideBar from '../components/SideBar/sideBar'
-function Index() {
+import React from 'react'
+import Header from '../components/Header'
+import MainSection from '../components/MainSection'
+import SideBar from '../components/SideBar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-  const [first, setfirst] = useState()
-  console.log("first",first)
+const Index=()=> {
+
   return (
     <div>
       <Header/>
-      <SideBar value={setfirst} />
-      <MainSection  id={first}/>
+      <Router>
+        <SideBar />
+        <Routes>
+          <Route exact path='/' element={<MainSection  />}/>
+          <Route path='/:subid' element={<MainSection  />}/>
+        </Routes>
+      </Router>
     </div>
   )
 }
 
 export default Index
+
