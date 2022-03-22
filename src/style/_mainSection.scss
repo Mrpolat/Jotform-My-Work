@@ -1,11 +1,33 @@
 .jfMainSection{
     width: 80%;
-    height: 80%;
-    border: 1px solid black;
+    height: 100%;
     position: absolute;
-    top: 20%;
+    top: 100px;
     bottom: 0;
     right: 0;
     left: 20%;
+    &-information{
+        font-size: 20px;
+        &-item{
+            padding: 3px;
+            padding-left: 27px;
+        }
+    }
+    &-title{
+        font-weight: bold;
+        display: inline-block;
+        position: absolute;
+        font-size: 50px;
+        margin: 50px;
+    }
+    &-jfImage{      
+        border-radius: 2em;        
+        width:350px;
+        height: 270px;  
+        background-repeat: no-repeat;
+        background-size: 350px 270px;
+        position: relative;
+        margin:30px;
+    }
 
 }

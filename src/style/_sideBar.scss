@@ -1,10 +1,9 @@
 .jfSideBar{
     width: 20%;
-    height: 80%;
-    border: 2px solid black;
+    height: 100%;
     position: absolute;
     display: inline;
-    top: 20%;
+    top: 100px;
     left: 0;
     bottom: 0;
 
@@ -12,10 +11,13 @@
         display: block;
         text-decoration: none;
         color: #000;
-        text-align: center;
         margin: 12px;
         border: 2px solid black;
-        background-color: pink;
+        background: linear-gradient(
+            90deg,
+            rgb(39, 176, 255) 25%,
+            rgb(0, 232, 236) 75%
+          );
         cursor: pointer;
     }
 
