@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSub } from '../../context/submission';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 const SideBar = () => {
   
   const {submissions} = useSub();  
@@ -9,7 +10,13 @@ const SideBar = () => {
   return (
     <div className='jfSideBar'>
       {
-      submissions.map(sub=> <Link to={sub.id} key={sub.id}   className='jfSideBar-Item'> {sub.answers[7].answer}</Link>)
+      submissions.map(sub=> 
+      <Link 
+      to={sub.id} 
+      key={sub.id} 
+      className={classnames('jfSideBar-Item', sub.answers[11].answer === 'Derelict' && 'jfSideBar-Derelict')}>
+        {sub.answers[7].answer}
+        </Link>)
       }
     </div>
   )

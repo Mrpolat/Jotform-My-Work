@@ -12,6 +12,22 @@
             padding: 3px;
             padding-left: 27px;
         }
+        &-button{
+            height: 50px;
+            width: 100px;
+            background-color: #01a301;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            &:hover{
+                transition: 0.5s;
+                font-size: 16px;
+                background-color: #08db08;
+            }
+        }
     }
     &-title{
         font-weight: bold;
