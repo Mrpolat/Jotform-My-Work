@@ -1,12 +1,20 @@
 import React from 'react'
 import { useUser } from '../../context/user';
+import { Link } from 'react-router-dom';
+import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg'
+
 
 const Header = () => {
 
   const userName = useUser();
 
   return (
-    <div className='jfHeader'> <h1 className='jfHeader-title'> jotform veteriner kliniği {userName}</h1></div>
+    <div className='jfHeader'>
+      
+      <Link to="/" className='jfHeader-logo-title'>JOTFORMVTK <IconPetPaw className="jfHeader-logo"/> </Link>
+      
+       <div className='jfHeader-title'>{userName}</div>
+    </div>
   )
 }
 

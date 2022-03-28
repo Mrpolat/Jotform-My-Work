@@ -14,8 +14,10 @@ const SideBar = () => {
       <Link 
       to={sub.id} 
       key={sub.id} 
-      className={classnames('jfSideBar-Item', sub.answers[11].answer === 'Derelict' && 'jfSideBar-Derelict')}>
+      className={classnames('jfSideBar-item', sub.answers[11].answer === 'Derelict' && 'jfSideBar-derelict')}>
+        <div className='jfSideBar-item-pad'>
         {sub.answers[7].answer}
+        </div>
         </Link>)
       }
     </div>

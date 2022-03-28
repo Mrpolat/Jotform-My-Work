@@ -1,0 +1,25 @@
+.jfDropdown{
+    background-color: red;
+    width: 100px;
+    height: auto;
+    &:hover 
+    &-content{         
+        display: block;    
+    }
+    &-title{
+        background-color: blue;
+        padding: 10px;
+       
+    }
+    &-content{
+        background-color: yellow;
+        display: none;
+        
+    }
+    &-item{
+        padding: 10px;
+        &:hover{
+            background-color: green;
+        }
+    }
+}

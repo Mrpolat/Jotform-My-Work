@@ -7,7 +7,7 @@ import {
 import PetDescription from './PetDescription.js';
 import PetImage from './PetImage';
 import PetTitle from './PetTitle';
-
+import PetAdoptionButton from './PetAdoptionButton';
 
 const MainSection = () => {
 
@@ -27,16 +27,15 @@ const MainSection = () => {
             <PetImage prop={sub.answers[4].answer[0]}/>            
             <PetTitle prop={sub.answers[7].answer}/>
             <PetDescription>
-            <div className='jfMainSection-information-item'>Sahip: {sub.answers[8].answer.first +" "+ sub.answers[8].answer.last}</div>
-            <div className='jfMainSection-information-item'>Durumu: {sub.answers[11].answer}</div>
-            <div className='jfMainSection-information-item'>Telefon Numarası: {sub.answers[9].answer.full}</div>
-            <div className='jfMainSection-information-item'>Cinsi: {sub.answers[6].answer}</div>
-            <div className='jfMainSection-information-item'>Özellikleri: {sub.answers[5].answer}</div>
+            <div className='jfMainSection-information-item'>Owner: {sub.answers[8].answer.first +" "+ sub.answers[8].answer.last}</div>
+            <div className='jfMainSection-information-item'>Adaption Status: {sub.answers[11].answer}</div>
+            <div className='jfMainSection-information-item'>Phone Number: {sub.answers[9].answer.full}</div>
+            <div className='jfMainSection-information-item'>Breed of: {sub.answers[6].answer}</div>
+            <div className='jfMainSection-information-item'>About Animal: {sub.answers[5].answer}</div>
             <div className='jfMainSection-information-item'>{
             (sub.answers[11].answer==='Derelict')?(
-              <button className='jfMainSection-information-button'>Sahiplen</button>
-            ):null
-               
+              <PetAdoptionButton />
+            ):null               
             }</div>
             </PetDescription>
           </div>
