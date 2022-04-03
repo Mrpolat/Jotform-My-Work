@@ -2,9 +2,12 @@ import React from 'react'
 import { useUser } from '../../context/user';
 import { Link } from 'react-router-dom';
 import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg'
+import { useAction } from '../../context/action';
 
 
 const Header = () => {
+
+  const {setModal} = useAction();
 
   const userName = useUser();
 
@@ -13,7 +16,7 @@ const Header = () => {
       
       <Link to="/" className='jfHeader-logo-title'>JOTFORMVTK <IconPetPaw className="jfHeader-logo"/> </Link>
       
-       <div className='jfHeader-title'>{userName}</div>
+       <div className='jfHeader-title' onClick={()=>setModal(true)}>Login</div>
     </div>
   )
 }

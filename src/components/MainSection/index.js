@@ -48,6 +48,3 @@ const MainSection = () => {
 
 export default MainSection
 
-MainSection.propTypes = {
-  path: PropTypes.string
-};

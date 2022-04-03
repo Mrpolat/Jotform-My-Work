@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/user';
 import { SubProvider } from './context/submission'
+import { ActionProvider } from './context/action';
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
       <SubProvider>
+        <ActionProvider>
         <App />
+        </ActionProvider>
       </SubProvider>
     </UserProvider>
   </React.StrictMode>,
