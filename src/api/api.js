@@ -10,3 +10,16 @@ export const user=()=> {
 export const formSubmissions = () => {
    return axios.get(FORM_SUBMİSSİONS_URL);
 }
+
+
+export const Login = ({username,password}) =>{
+        let fd = new FormData()
+        fd.append('username',username)
+        fd.append('password',password)
+     return axios({
+        method: 'post',
+        url: 'https://api.jotform.com/user/login',
+        data:fd,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+}
