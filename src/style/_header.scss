@@ -8,10 +8,10 @@
     right: 0;
     text-transform: uppercase;
     overflow: hidden;
-    background-color: #f1f1f1;
+    background-color: #0A1551;
     &-logo-title{
         text-decoration: none;
-        color: black;
+        color: white;
         display: inline;
         position: relative;
         float: left;
@@ -20,7 +20,7 @@
     }
     &-logo{
         text-decoration: none;
-        color: black;
+        color: white;
         display: inline;
         position: relative;
         top: 15px;
@@ -34,7 +34,7 @@
         position: relative;        
         display: inline;
         float: right;
-        background-color: #1e90ff;
+        background-color: #E65700;
         cursor: pointer;
     }
     
