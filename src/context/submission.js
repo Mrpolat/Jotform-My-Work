@@ -2,7 +2,7 @@ import React, {
     createContext, useContext, useEffect, useState
 } from 'react';
 import PropTypes from 'prop-types';
-import { formSubmissions } from '../api/api';
+import { formAnimalSubmissions } from '../api/api';
 
 const SubContext = createContext();
 
@@ -16,7 +16,7 @@ export const SubProvider = ({ children }) => {
     
     
     useEffect(() => {
-        formSubmissions().then(response => {
+        formAnimalSubmissions().then(response => {
             console.log(response)
             setSubmissions(response.data.content)
         })

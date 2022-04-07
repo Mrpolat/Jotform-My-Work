@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types';
 import { useSub } from '../../context/submission';
 import {
   useParams,
@@ -18,7 +17,7 @@ const MainSection = () => {
   useEffect(() => {
     setHandleSelectedID(subid);
   },[setHandleSelectedID,subid]);
-  
+
   return (
     <div className='jfMainSection'>
       { 
@@ -28,7 +27,8 @@ const MainSection = () => {
             <PetTitle prop={sub.answers[7].answer}/>
             <PetDescription>
             <div className='jfMainSection-information-item'>Owner: {sub.answers[8].answer.first +" "+ sub.answers[8].answer.last}</div>
-            <div className='jfMainSection-information-item'>Adaption Status: {sub.answers[11].answer}</div>
+            <div className='jfMainSection-information-item'>Adoption Status: {sub.answers[11].answer}</div>
+            <div className='jfMainSection-information-item'>Pet Id: {sub.id}</div>
             <div className='jfMainSection-information-item'>Phone Number: {sub.answers[9].answer.full}</div>
             <div className='jfMainSection-information-item'>Breed of: {sub.answers[6].answer}</div>
             <div className='jfMainSection-information-item'>About Animal: {sub.answers[5].answer}</div>

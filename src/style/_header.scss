@@ -26,15 +26,17 @@
         top: 15px;
         font-size: 32px;
     }
-    &-title{
+    &-login{
         margin: 20px;
         padding: 20px 30px;
         color: white;
         border-radius: 20px;
+        border: none;
         position: relative;        
         display: inline;
         float: right;
         background-color: #E65700;
+        font-size: 18px;
         cursor: pointer;
     }
     

@@ -21,4 +21,3 @@ function App() {
 }
 
 export default App;
-{/* <button onClick={openModal} className={classNames('jfButton', showModal===true && 'jfButton-inVisible')}>I'm a modal</button> */}

@@ -11,20 +11,34 @@ export const useAction = () => useContext(ActionContext)
 export const ActionProvider = ({ children }) => {
 
     const [showModal, setShowModal] = useState(false)
-
-    // const [loginData, setLoginData] = useState({ username: "1 ", password: "2 " })
-    // console.log(loginData)
-
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState()
+   
+    console.log(success)
     const handleShowModal = (e) => setShowModal(e => !e);
+    const handleSuccess = (e) => setSuccess(e);
 
     const handleLoginData = ({username,password}) => {
-        // setLoginData({username:username ,password:password});
-        Login({username:username ,password:password}).then(response=>console.log(response))
+        Login({username:username ,password:password}).then(
+            response=>{console.log(response)
+                if(response.data.responseCode===200){
+                    setSuccess(true)
+                }         
+                else{
+                    setError("username and password do not match")
+                }   
+        })
+        // .catch(error => {
+        //       console.log(error)
+        //     }
+        //   )
     }
-
     return (
         <ActionContext.Provider value={{
             showModal,
+            success,
+            error,
+            setSuccess: handleSuccess,
             setModal: handleShowModal,
             setLogin: handleLoginData
         }}>

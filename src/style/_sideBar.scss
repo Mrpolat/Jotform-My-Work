@@ -35,24 +35,26 @@
           font-size: 20px;
         }
         &-ownerName{
-          display: block;
+          display: inline-block;
           font-size: 14px;
         }
+        &-status{
+          float: right;
+          background-color: #17ea45;
+          width: 50px;
+          text-align: center;
+          font-size: 10px;
+          padding: 3px;
+          text-transform: uppercase;
+          border-radius: 6px;
+          color: rgb(252, 252, 252);
+          font-weight: bold;
+          &-derelict{
+            background-color: red;
+          }
+        }
     }
-    &-derelict{
-        display: block;
-        text-decoration: none;
-        color: #000;
-        margin: 12px;
-        border: 2px solid black;
-        border-radius: 10px;
-        background: linear-gradient(
-            90deg,
-            rgb(246, 84, 255) 25%,
-            rgb(244, 190, 247) 75%
-          );
-        cursor: pointer;
-    }
+ 
     
 
 }

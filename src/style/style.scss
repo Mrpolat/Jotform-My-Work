@@ -8,6 +8,58 @@
 @import "button";
 @import "container";
 @import "userLoginInput";
+@import "rightSideBar";
 body{
-    font-family: $general-font;
+    font-family: 'Roboto', sans-serif;
 }
+.OutlineCheck{
+    width: 80%;
+    height: 100%;
+    padding-left: 33px;
+    color: #4EB100;
+}
+.success{
+    color: #56cfff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.ExitOutline{
+    color: white;
+    position: relative;
+    right: 8px;
+    top: 30px;   
+    float: right;
+    font-size: 40px;
+    cursor: pointer;
+
+}
+//Alert Message
+.alert {
+    margin-top: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f44336;
+    color: white;
+  }
+  //scroll bar
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

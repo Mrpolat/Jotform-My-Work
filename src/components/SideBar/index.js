@@ -22,6 +22,9 @@ const SideBar = () => {
               <span  className='jfSideBar-item-ownerName'>        
                 {sub.answers[8].answer.first + " " + sub.answers[8].answer.last}
               </span>
+              <span className={classnames('jfSideBar-item-status', sub.answers[11].answer === 'Derelict' && 'jfSideBar-item-status-derelict')}>{
+               (sub.answers[11].answer === 'Derelict')?("Derelict"):("owned")
+              }</span>
             </div>
           </Link>)
       }

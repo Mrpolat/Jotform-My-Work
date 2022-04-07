@@ -1,15 +1,21 @@
 import axios from "axios";
+import {apikey} from './apikey'
 
-const USER_URL = 'https://api.jotform.com/user?apiKey=d5512da65818b753ca0b927d92805db3';
-const FORM_SUBMİSSİONS_URL =`https://api.jotform.com/form/220652760779060/submissions?apiKey=d5512da65818b753ca0b927d92805db3`;
+const USER_URL = `https://api.jotform.com/user?apiKey=${apikey}`;
+const FORM_ANIMAL_SUBMISSIONS_URL =`https://api.jotform.com/form/220652760779060/submissions?apiKey=${apikey}`;
+const FORM_ADAPTION_SUBMISSIONS_URL =`https://api.jotform.com/form/220803245626047/submissions?apiKey=${apikey}`;
 
 export const user=()=> {
     return axios.get(USER_URL);
 };
 
-export const formSubmissions = () => {
-   return axios.get(FORM_SUBMİSSİONS_URL);
-}
+export const formAnimalSubmissions = () => {
+   return axios.get(FORM_ANIMAL_SUBMISSIONS_URL);
+};
+export const formAdaptionSubmissions = () => {
+   return axios.get(FORM_ADAPTION_SUBMISSIONS_URL);
+};
+
 
 
 export const Login = ({username,password}) =>{
@@ -23,3 +29,25 @@ export const Login = ({username,password}) =>{
         headers: { "Content-Type": "multipart/form-data" },
       });
 }
+
+// export const Login = ({username,password}) =>{
+//    console.log(username,password)
+//      return axios({
+//         method: 'post',
+//         url: 'https://api.jotform.com/user/login',
+//         data:[{
+//          'username':username,
+//          'password':password
+//         }],
+//         headers: { "Content-Type": "multipart/form-data" },
+//       });
+// }
+
+// export const Login = ({username,password}) =>{
+//    console.log(username,password)
+//      return axios.post('https://api.jotform.com/user/login',{'username':username,'password':password},
+//         {
+//         headers: { "Content-Type": "multipart/form-data" },
+//         }
+//       );
+// }

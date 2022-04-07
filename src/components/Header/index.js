@@ -1,22 +1,35 @@
 import React from 'react'
 import { useUser } from '../../context/user';
 import { Link } from 'react-router-dom';
+import { IoExitOutline } from 'react-icons/io5'
 import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg'
 import { useAction } from '../../context/action';
 
 
 const Header = () => {
 
-  const {setModal} = useAction();
+  const { setModal, success, setSuccess } = useAction();
+
 
   const userName = useUser();
 
   return (
     <div className='jfHeader'>
-      
-      <Link to="/" className='jfHeader-logo-title'>JOTFORMVTK <IconPetPaw className="jfHeader-logo"/> </Link>
-      
-       <div className='jfHeader-title' onClick={()=>setModal(true)}>Login</div>
+
+      <Link to="/" className='jfHeader-logo-title'>JOTFORMVTK <IconPetPaw className="jfHeader-logo" /> </Link>
+      {success ? (<IoExitOutline className='ExitOutline' onClick={() => setSuccess(false)} />) : null}
+      <button
+        className='jfHeader-login'
+        onClick={() => setModal(true)}
+        style={success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' }} >
+        {
+          success ?
+            (userName) : 'Login'
+        }
+      </button>
+
+
+
     </div>
   )
 }
