@@ -10,7 +10,7 @@ import PetAdoptionButton from './PetAdoptionButton';
 
 const MainSection = () => {
 
-  const {submissions,setHandleSelectedID} = useSub();
+  const {animalSubmissions,setHandleSelectedID} = useSub();
 
   let { subid } = useParams();
 
@@ -21,7 +21,7 @@ const MainSection = () => {
   return (
     <div className='jfMainSection'>
       { 
-        submissions.map(sub => sub.id === subid ?
+        animalSubmissions.map(sub => sub.id === subid ?
           (<div key={sub.id}>
             <PetImage prop={sub.answers[4].answer[0]}/>            
             <PetTitle prop={sub.answers[7].answer}/>

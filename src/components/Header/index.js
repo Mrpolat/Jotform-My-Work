@@ -8,7 +8,7 @@ import { useAction } from '../../context/action';
 
 const Header = () => {
 
-  const { setModal, success, setSuccess } = useAction();
+  const { setModal, success, setSuccess, setModalContent } = useAction();
 
 
   const userName = useUser();
@@ -20,7 +20,7 @@ const Header = () => {
       {success ? (<IoExitOutline className='ExitOutline' onClick={() => setSuccess(false)} />) : null}
       <button
         className='jfHeader-login'
-        onClick={() => setModal(true)}
+        onClick={() => (setModal(true),setModalContent("login"))}
         style={success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' }} >
         {
           success ?

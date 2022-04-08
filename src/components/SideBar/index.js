@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 const SideBar = () => {
 
-  const { submissions } = useSub();
+  const { animalSubmissions } = useSub();
 
 
   return (
     <div className='jfSideBar'>
       {
-        submissions.map(sub =>
+        animalSubmissions.map(sub =>
           <Link
             to={sub.id}
             key={sub.id}

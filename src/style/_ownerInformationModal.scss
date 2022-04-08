@@ -1,0 +1,23 @@
+.jfOwnerInformationModal{
+    
+    &-button{
+        float: right;
+        margin-top: 10px;        
+        width: 110px;
+        height: 50px;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        
+    }
+}
+.approve{
+    background-color: #01bd6f;
+    margin-right: 5px;
+}
+.reject{
+    background-color: #f43b57;
+ 
+}

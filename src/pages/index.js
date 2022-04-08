@@ -22,7 +22,7 @@ const Index=()=> {
           <Route path='/:subid' element={<MainSection  />}/>
           <Route path='/:subid/AdaptionForm' element={<PetAdoptionForm  />}/>
         </Routes>
-        {success?(<RightSideBar/>):null}
+        {success?<RightSideBar/>:null}
         
       </Router>
     </div>

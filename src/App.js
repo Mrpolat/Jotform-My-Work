@@ -1,21 +1,21 @@
 
 import Index from './pages';
 import React from 'react';
-import Modal from './components/Modal';
 import classNames from 'classnames';
 import { useAction } from './context/action';
+import Modal from './components/Modal';
+import ModalCreater from './components/Modal/ModalCreater';
 
 function App() {
 
-  const {showModal} = useAction();
+  const {showModal,modalContent} = useAction();
 
   return (
     <div className="App">
       <div className={classNames('jfContainer', showModal===true && 'jfContainer-visible')}>
-        <Modal  />
+        {ModalCreater(modalContent)}
       </div>
-      <Index  />
-
+      <Index/>
     </div>
   );
 }
