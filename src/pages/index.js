@@ -5,11 +5,11 @@ import SideBar from '../components/SideBar'
 import PetAdoptionForm from '../components/PetAdoptionForm'
 import RightSideBar from '../components/RightSideBar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useAction } from '../context/action'
+// import { useAction } from '../context/action'
 
 const Index=()=> {
 
-  const {  success  } = useAction();
+  // const {  success  } = useAction();
 
   return (
     <div>
@@ -22,7 +22,7 @@ const Index=()=> {
           <Route path='/:subid' element={<MainSection  />}/>
           <Route path='/:subid/AdaptionForm' element={<PetAdoptionForm  />}/>
         </Routes>
-        {success?<RightSideBar/>:null}
+        <RightSideBar/>
         
       </Router>
     </div>

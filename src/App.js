@@ -3,7 +3,6 @@ import Index from './pages';
 import React from 'react';
 import classNames from 'classnames';
 import { useAction } from './context/action';
-import Modal from './components/Modal';
 import ModalCreater from './components/Modal/ModalCreater';
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import { MdClose } from 'react-icons/md'
 import { useAction } from '../../context/action';
 

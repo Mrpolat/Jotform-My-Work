@@ -13,6 +13,11 @@ const Header = () => {
 
   const userName = useUser();
 
+  const handleEvent = () =>{
+    setModal(true);
+    setModalContent("login")
+  }
+
   return (
     <div className='jfHeader'>
 
@@ -20,7 +25,7 @@ const Header = () => {
       {success ? (<IoExitOutline className='ExitOutline' onClick={() => setSuccess(false)} />) : null}
       <button
         className='jfHeader-login'
-        onClick={() => (setModal(true),setModalContent("login"))}
+        onClick={() => handleEvent()}
         style={success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' }} >
         {
           success ?

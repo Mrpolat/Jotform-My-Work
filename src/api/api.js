@@ -1,11 +1,11 @@
 import axios from "axios";
 import {apikey} from './apikey'
 
+
 const USER_URL = `https://api.jotform.com/user?apiKey=${apikey}`;
 const FORM_ANIMAL_SUBMISSIONS_URL =`https://api.jotform.com/form/220652760779060/submissions?apiKey=${apikey}`;
 const FORM_ADAPTION_SUBMISSIONS_URL =`https://api.jotform.com/form/220803245626047/submissions?apiKey=${apikey}`;
 const USER_LOGIN_URL = 'https://api.jotform.com/user/login';
-const SUBMISSION_EDIT_URL = `https://api.jotform.com/submission/5250195465414105500?apiKey=${apikey}`;
 
 export const user=()=> {
     return axios.get(USER_URL);
@@ -31,6 +31,25 @@ export const Login = ({username,password}) =>{
         headers: { "Content-Type": "multipart/form-data" },
       });
 }
+export const editSubmission = ({usernameFirst,usernameLast,phoneNumber,submissionID}) =>{
+   console.log({usernameFirst,usernameLast,phoneNumber,submissionID})
+   let sd = new FormData()
+   sd.append('submission[8][first]',usernameFirst)
+   sd.append('submission[8][last]',usernameLast)
+   sd.append('submission[9][full]',phoneNumber)
+   sd.append('submission[11]','Owned')
+return axios({
+   method: 'post',
+   url: `https://api.jotform.com/submission/${submissionID}?apiKey=${apikey}`,
+   data:sd,
+   headers: { "Content-Type": "multipart/form-data" },
+ });
+}
+export const deleteSubmission = (candidatesID) =>{
+   console.log(candidatesID)
+   return axios.delete(`https://api.jotform.com/submission/${candidatesID.ownerID}?apiKey=${apikey}`)
+}
+
 
 // export const Login = ({username,password}) =>{
 //    console.log(username,password)
