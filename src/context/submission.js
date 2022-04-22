@@ -12,10 +12,6 @@ export const SubProvider = ({ children }) => {
 
     const [animalSubmissions, setAnimalSubmissions] = useState([]);
     const [adaptionSubmissions, setAdaptionSubmissions] = useState([]);
-    const [selectedID, setSelectedID] = useState("");
-    const handleSelectedIDChange = (e) => setSelectedID(e);//url den id ile setlenen id
-
- 
     
     useEffect(() => {
         formAnimalSubmissions().then(response => {
@@ -34,8 +30,7 @@ export const SubProvider = ({ children }) => {
         <SubContext.Provider value={{
             animalSubmissions,
             adaptionSubmissions,
-            selectedID,
-            setHandleSelectedID: handleSelectedIDChange
+            
 
         }}>
             {children}

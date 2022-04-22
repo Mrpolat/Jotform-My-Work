@@ -3,21 +3,21 @@ import { useAction } from '../../context/action';
 import { useSub } from '../../context/submission';
 
 const RightSideBar = () => {
-  const { adaptionSubmissions, selectedID } = useSub();
-  const { setModalContent, setModal,setOwnerID } = useAction();
+  const { adaptionSubmissions } = useSub();
+  const { setModalContent, setModal, setCandidateID, selectedID } = useAction();
 
-  const HandleEvent = (e) =>{
-    setModal(true); 
-    setModalContent("ownerInformation"); 
-    setOwnerID(e);
+  const HandleEvent = (e) => {
+    setModal(true);
+    setModalContent("ownerInformation");
+    setCandidateID(e);
   }
   return (
     <div className='jfRightSideBar'>
-        <div className='jfRightSideBar-title'>
-            Candidates
+      <div className='jfRightSideBar-title'>
+        Candidates
       </div>
       {
-        adaptionSubmissions.map(sub => (sub.answers[14].answer === selectedID) ?
+        adaptionSubmissions.map(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending") ?
           (<div
             onClick={() => HandleEvent(sub.id)}
             to={sub.id}
@@ -26,8 +26,8 @@ const RightSideBar = () => {
             <div className='jfRightSideBar-pad'>
               <span className=''>
                 {sub.answers[4].answer.first + " " + sub.answers[4].answer.last}
-              </span>                          
-            </div>            
+              </span>
+            </div>
           </div>) : null)
       }
     </div>

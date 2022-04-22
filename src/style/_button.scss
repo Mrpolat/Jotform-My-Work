@@ -11,5 +11,39 @@
     z-index: 999;
     &-inVisible{
         display: none;
-    }
+    }    
+}
+.AdoptionButton{
+    height: 50px;
+    line-height: 45px;
+    width: 100px;
+    background-color: #01a301;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align:center;
+    &:hover{
+        transition: 0.5s;
+        font-size: 18px;
+        background-color: #08db08;
+    }     
+}
+.PetBackHomeButton{
+    height: 50px;
+    line-height: 45px;
+    width: 100px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align:center;
+    &:hover{
+        transition: 0.5s;
+        font-size: 18px;
+        background-color: #ff3d3d;
+    }   
 }

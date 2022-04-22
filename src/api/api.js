@@ -18,8 +18,6 @@ export const formAdaptionSubmissions = () => {
    return axios.get(FORM_ADAPTION_SUBMISSIONS_URL);
 };
 
-
-
 export const Login = ({username,password}) =>{
         let fd = new FormData()
         fd.append('username',username)
@@ -31,8 +29,21 @@ export const Login = ({username,password}) =>{
         headers: { "Content-Type": "multipart/form-data" },
       });
 }
-export const editSubmission = ({usernameFirst,usernameLast,phoneNumber,submissionID}) =>{
-   console.log({usernameFirst,usernameLast,phoneNumber,submissionID})
+// const packet ={
+//    'username':'polattucar',
+//    'password':'Hweroesk1994'
+// }
+
+// export const Login = () =>{
+//    console.log(packet)
+//      return axios.post('https://api.jotform.com/user/login',packet,
+//         {
+//          headers: { "Content-Type": "multipart/form-data" },
+//         }
+//       );
+// }
+export const editSubmission = ({usernameFirst,usernameLast,phoneNumber,selectedID}) =>{
+   console.log({usernameFirst,usernameLast,phoneNumber,selectedID})
    let sd = new FormData()
    sd.append('submission[8][first]',usernameFirst)
    sd.append('submission[8][last]',usernameLast)
@@ -40,11 +51,34 @@ export const editSubmission = ({usernameFirst,usernameLast,phoneNumber,submissio
    sd.append('submission[11]','Owned')
 return axios({
    method: 'post',
-   url: `https://api.jotform.com/submission/${submissionID}?apiKey=${apikey}`,
+   url: `https://api.jotform.com/submission/${selectedID}?apiKey=${apikey}`,
    data:sd,
    headers: { "Content-Type": "multipart/form-data" },
  });
 }
+export const editCandidateStatus = (candidateID) =>{
+   console.log(candidateID)
+   let sd = new FormData()
+   sd.append('submission[15]','accepted')
+return axios({
+   method: 'post',
+   url: `https://api.jotform.com/submission/${candidateID}?apiKey=${apikey}`,
+   data:sd,
+   headers: { "Content-Type": "multipart/form-data" },   
+ });
+}
+export const editPetStatusForBack = (selectedID) =>{
+   let sd = new FormData()
+   sd.append('submission[11]','Derelict')
+return axios({
+   method: 'post',
+   url: `https://api.jotform.com/submission/${selectedID}?apiKey=${apikey}`,
+   data:sd,
+   headers: { "Content-Type": "multipart/form-data" },
+ });
+}
+
+
 export const deleteSubmission = (candidatesID) =>{
    console.log(candidatesID)
    return axios.delete(`https://api.jotform.com/submission/${candidatesID.ownerID}?apiKey=${apikey}`)

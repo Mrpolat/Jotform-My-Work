@@ -2,8 +2,7 @@ import React, {
     createContext, useContext,   useState
 } from 'react';
 import PropTypes from 'prop-types';
-import { Login, editSubmission, deleteSubmission } from '../api/api';
-import { useSub } from './submission';
+import { Login, editSubmission, deleteSubmission,editCandidateStatus,editPetStatusForBack } from '../api/api';
 
 const ActionContext = createContext();
 
@@ -11,28 +10,41 @@ export const useAction = () => useContext(ActionContext)
 
 export const ActionProvider = ({ children }) => {
 
-    const [showModal, setShowModal] = useState(false)//aşağıda ki modalcontent ile birleşecek çünkü ikisi aslında aynı işi yapıyor
-    const [modalContent, setModalContent] = useState("Empty")//which modal keeps the information to be displayed
-    const [ownerID, setOwnerID] = useState()
-    const [success, setSuccess] = useState(false)
-    const [successDelete,setSuccessDelete] = useState(false)
-    const [error, setError] = useState()
-
+    const [showModal, setShowModal] = useState(false)//modal componentinin açılıp açılmayacağını setler
+    const [modalContent, setModalContent] = useState("Empty")//modal componentinin içeriğini setler
+    const [success, setSuccess] = useState(false)//Login requestinin durumunu setler
+    const [candidateID, setCandidateID] = useState()//rightsidebar da adaylar üzerinde tıklanılanılan kişinin Id si
+    const [indexItem,setIndexItem] = useState();//sidebarda seçilen itemın indexini setler
+    const [selectedID, setSelectedID] = useState("");//router yapısında ki urlden gelen id yi setler
+    const [successDelete,setSuccessDelete] = useState(false)//aday silme işleminde requestin durumunu setler
+    const [error, setError] = useState()//Login requestinde hatayı setler
+    
     const handleShowModal = () => setShowModal(e => !e);
     const handleModalContent = (e) => setModalContent(e);
     const handleSuccess = (e) => setSuccess(e);
-    const handleOwnerID = (e) => setOwnerID(e);
+    const handleCandidateID = (e) => setCandidateID(e);
+    const whichItemSelect = (e) => setIndexItem(e); 
+    const handleSelectedIDChange = (e) => setSelectedID(e);
 
-    const submissionContext = useSub()
-    let submissionID=submissionContext.selectedID
-
+    console.log(selectedID)
     const handleEditSubmission = ({usernameFirst,usernameLast,phoneNumber}) => {
-        editSubmission({usernameFirst,usernameLast,phoneNumber,submissionID}).then(response => {
+        editSubmission({usernameFirst,usernameLast,phoneNumber,selectedID}).then(response => {
             console.log(response)
         })
     }
+    const handleEditCandidateStatus = () => {
+        editCandidateStatus(candidateID).then(response => {
+            console.log(response)
+        })
+    }
+    const handlePetStatusForBack = () => {
+        editPetStatusForBack(selectedID).then(response => {
+            console.log(response)
+        })
+    }
+    
     const handleDeleteSubmission = () =>{
-        deleteSubmission({ownerID}).then(
+        deleteSubmission({candidateID}).then(
             response => {console.log(response)
                 if(response.data.responseCode===200){
                     setSuccessDelete(true)
@@ -49,26 +61,29 @@ export const ActionProvider = ({ children }) => {
                     setError("username and password do not match")
                 }   
         })
-        .catch(error => {
-              console.log(error)
-            }
-          )
     }
+   
     return (
         <ActionContext.Provider value={{
             successDelete,
-            showModal,            
+            showModal,          
             setModal: handleShowModal,
             modalContent,
             setModalContent: handleModalContent,
-            ownerID,
-            setOwnerID,handleOwnerID,
+            candidateID,
+            setCandidateID,handleCandidateID,
             success,
             setSuccess: handleSuccess,
             error,
             setLogin: handleLoginData,
             editSubmission : handleEditSubmission,
-            deleteSubmission : handleDeleteSubmission
+            deleteSubmission : handleDeleteSubmission,
+            indexItem,
+            setIndexItem : whichItemSelect,
+            selectedID,
+            setHandleSelectedID: handleSelectedIDChange,
+            editCandidateStatus: handleEditCandidateStatus,
+            editPetStatusForBack:handlePetStatusForBack
         }}>
             {children}
         </ActionContext.Provider>

@@ -7,7 +7,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 const OwnerInformationModal = () => {
 
   const { adaptionSubmissions } = useSub();
-  const { successDelete, ownerID, editSubmission, deleteSubmission } = useAction();
+  const { successDelete, candidateID, editSubmission, deleteSubmission,editCandidateStatus } = useAction();
 
   const handleEvent = (passData) => {
     editSubmission({
@@ -15,13 +15,14 @@ const OwnerInformationModal = () => {
       usernameLast: passData[0].last,
       phoneNumber: passData[1]
     });
+    editCandidateStatus();
   }
 
   return (
     <Modal>
       <div>{(successDelete === false) ? (
 
-        adaptionSubmissions.map(sub => (sub.id === ownerID) ?
+        adaptionSubmissions.map(sub => (sub.id === candidateID) ?
           (
             <div
               to={sub.id}
