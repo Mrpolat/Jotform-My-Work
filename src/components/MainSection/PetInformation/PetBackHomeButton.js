@@ -1,11 +1,12 @@
 import React from 'react'
-import { useCandidate } from '../../context/candidate';
+import { useModal } from '../../../context/modal';
 
 const PetBackHomeButton = () => {
-  const { editPetReturn } = useCandidate();
+  
+  const { setModalContent, setModal } = useModal();
   const handleEvent = () => {
-
-    editPetReturn();
+    setModal(true);
+    setModalContent('animalReturn');
   }
   return (
     <div className='PetBackHomeButton' onClick={() => handleEvent()}>BackHome</div>

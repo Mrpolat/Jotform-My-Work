@@ -34,7 +34,7 @@ export const CandidateProvider = ({ children }) => {
         })
     }
     const handleDeleteCandidate = () => {
-        deleteCandidate({ candidateID }).then(
+        deleteCandidate(candidateID).then(
             response => {
                 console.log(response)
                 if (response.data.responseCode === 200) {

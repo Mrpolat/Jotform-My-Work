@@ -75,10 +75,17 @@ return axios({
  });
 }
 
-
-export const deleteCandidate = (candidatesID) =>{
-   console.log(candidatesID)
-   return axios.delete(`https://api.jotform.com/submission/${candidatesID.candidateID}?apiKey=${apikey}`)
+//User not deleted, just change status to denied
+export const deleteCandidate = (candidateID) =>{
+   console.log(candidateID)
+   let sd = new FormData()
+   sd.append('submission[15]','denied')
+return axios({
+   method: 'post',
+   url: `https://api.jotform.com/submission/${candidateID}?apiKey=${apikey}`,
+   data:sd,
+   headers: { "Content-Type": "multipart/form-data" },   
+ });
 }
 
 

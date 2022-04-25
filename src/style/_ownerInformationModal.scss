@@ -10,8 +10,13 @@
         font-size: 14px;
         text-align: center;
         cursor: pointer;
-        
     }
+}
+.disabled{
+opacity: 0.5;
+}
+.actived{
+opacity: 1;
 }
 .approve{
     background-color: #01bd6f;

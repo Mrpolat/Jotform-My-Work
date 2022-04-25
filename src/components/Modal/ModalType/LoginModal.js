@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
-import Modal from '.';
-import { useUser } from '../../context/user';
+import Modal from '..';
+import { useUser } from '../../../context/user';
 
 const LoginModal = () => {
 

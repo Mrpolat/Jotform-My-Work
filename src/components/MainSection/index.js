@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSub } from '../../context/submission';
 import {
   useParams,
 } from "react-router-dom";
-import PetDescription from './PetDescription.js';
-import PetImage from './PetImage';
-import PetTitle from './PetTitle';
-import PetAdoptionButton from './PetAdoptionButton';
-import PetBackHomeButton from './PetBackHomeButton';
+import PetDescription from './PetInformation/PetDescription.js';
+import PetImage from './PetInformation/PetImage';
+import PetTitle from './PetInformation/PetTitle';
+import PetAdoptionButton from './PetInformation/PetAdoptionButton';
+import PetBackHomeButton from './PetInformation/PetBackHomeButton';
 import RightSideBar from '../RightSideBar';
-import { useAction } from '../../context/action';
 
 const MainSection = () => {
 
   const { animalSubmissions } = useSub();
-  const { indexItem, setHandleSelectedID } = useAction();
+  // const { indexItem, setHandleSelectedID } = useAction();
 
-  let animalInformation = animalSubmissions[indexItem];
+  // let animalInformation = animalSubmissions[indexItem];
   let { subid } = useParams();
 
-  useEffect(() => {
-    setHandleSelectedID(subid);
-  }, [setHandleSelectedID, subid]);
+  // useEffect(() => {
+  //   setHandleSelectedID(subid);
+  // }, [setHandleSelectedID, subid]);
 
   return (
     <div className='jfMainSection'>
