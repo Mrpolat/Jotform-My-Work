@@ -1,21 +1,19 @@
 import React from 'react'
 import { useUser } from '../../context/user';
 import { Link } from 'react-router-dom';
-import { IoExitOutline } from 'react-icons/io5'
-import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg'
-import { useAction } from '../../context/action';
+import { IoExitOutline } from 'react-icons/io5';
+import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg';
+import { useModal } from '../../context/modal';
 
 
 const Header = () => {
 
-  const { setModal, success, setSuccess, setModalContent } = useAction();
+  const { setModal, setModalContent } = useModal();
+  const { userName, success, setSuccess } = useUser();
 
-
-  const userName = useUser();
-
-  const handleEvent = () =>{
+  const handleEvent = () => {
     setModal(true);
-    setModalContent("login")
+    setModalContent("login");
   }
 
   return (

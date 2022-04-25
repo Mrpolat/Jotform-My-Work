@@ -1,10 +1,10 @@
 import React from 'react'
 import { MdClose } from 'react-icons/md'
-import { useAction } from '../../context/action';
+import { useModal } from '../../context/modal';
 
 const Modal = ({children}) => {
 
-  const { showModal,  setModal } = useAction();
+  const { showModal,  setModal } = useModal();
 
   return (
     <>{showModal ? (

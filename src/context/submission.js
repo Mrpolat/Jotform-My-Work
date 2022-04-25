@@ -30,9 +30,7 @@ export const SubProvider = ({ children }) => {
         <SubContext.Provider value={{
             animalSubmissions,
             adaptionSubmissions,
-            
-
-        }}>
+            }}>
             {children}
         </SubContext.Provider>
     );

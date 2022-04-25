@@ -6,13 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/user';
 import { SubProvider } from './context/submission'
 import { ActionProvider } from './context/action';
+import { ModalProvider } from './context/modal';
+import { CandidateProvider } from './context/candidate';
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
       <SubProvider>
         <ActionProvider>
-        <App />
+          <ModalProvider>
+            <CandidateProvider>
+              <App />
+            </CandidateProvider>
+          </ModalProvider>
         </ActionProvider>
       </SubProvider>
     </UserProvider>

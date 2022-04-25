@@ -2,12 +2,12 @@
 import Index from './pages';
 import React from 'react';
 import classNames from 'classnames';
-import { useAction } from './context/action';
 import ModalCreater from './components/Modal/ModalCreater';
+import { useModal } from './context/modal';
 
 function App() {
 
-  const {showModal,modalContent} = useAction();
+  const {showModal,modalContent} = useModal();
 
   return (
     <div className="App">

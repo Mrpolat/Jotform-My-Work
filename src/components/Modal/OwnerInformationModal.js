@@ -1,16 +1,16 @@
 import React from 'react'
 import Modal from '.';
-import { useAction } from '../../context/action';
 import { useSub } from '../../context/submission';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { useCandidate } from '../../context/candidate';
 
 const OwnerInformationModal = () => {
 
   const { adaptionSubmissions } = useSub();
-  const { successDelete, candidateID, editSubmission, deleteSubmission,editCandidateStatus } = useAction();
+  const { successDelete, candidateID, editAdoptedAnimal, deleteCandidate,editCandidateStatus } = useCandidate();
 
   const handleEvent = (passData) => {
-    editSubmission({
+    editAdoptedAnimal({
       usernameFirst: passData[0].first,
       usernameLast: passData[0].last,
       phoneNumber: passData[1]
@@ -37,7 +37,7 @@ const OwnerInformationModal = () => {
               <div className='question'>Will you be able to show enough concern for your pet?</div>
               <div className='answer'>: {sub.answers[13].answer} </div>
               <button
-                onClick={() => deleteSubmission()}
+                onClick={() => deleteCandidate()}
                 className='jfOwnerInformationModal-button reject'>
                 Deny
               </button>

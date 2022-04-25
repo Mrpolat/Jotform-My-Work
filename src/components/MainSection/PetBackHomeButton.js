@@ -1,15 +1,14 @@
 import React from 'react'
-import { useAction } from '../../context/action'
+import { useCandidate } from '../../context/candidate';
 
 const PetBackHomeButton = () => {
-  const { editPetStatusForBack}=useAction();
+  const { editPetReturn } = useCandidate();
   const handleEvent = () => {
-  
-    editPetStatusForBack();
+
+    editPetReturn();
   }
   return (
     <div className='PetBackHomeButton' onClick={() => handleEvent()}>BackHome</div>
   )
 }
-
 export default PetBackHomeButton

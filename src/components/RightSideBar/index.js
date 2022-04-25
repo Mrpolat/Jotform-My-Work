@@ -1,11 +1,15 @@
 import React from 'react'
 import { useAction } from '../../context/action';
+import { useCandidate } from '../../context/candidate';
+import { useModal } from '../../context/modal';
 import { useSub } from '../../context/submission';
 
 const RightSideBar = () => {
   const { adaptionSubmissions } = useSub();
-  const { setModalContent, setModal, setCandidateID, selectedID } = useAction();
-
+  const { selectedID } = useAction();
+  const { setModalContent, setModal } = useModal();
+  const {setCandidateID}=useCandidate();
+  
   const HandleEvent = (e) => {
     setModal(true);
     setModalContent("ownerInformation");

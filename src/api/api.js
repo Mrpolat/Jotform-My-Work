@@ -29,10 +29,7 @@ export const Login = ({username,password}) =>{
         headers: { "Content-Type": "multipart/form-data" },
       });
 }
-// const packet ={
-//    'username':'polattucar',
-//    'password':'Hweroesk1994'
-// }
+
 
 // export const Login = () =>{
 //    console.log(packet)
@@ -42,7 +39,7 @@ export const Login = ({username,password}) =>{
 //         }
 //       );
 // }
-export const editSubmission = ({usernameFirst,usernameLast,phoneNumber,selectedID}) =>{
+export const editAdoptedAnimal = ({usernameFirst,usernameLast,phoneNumber,selectedID}) =>{
    console.log({usernameFirst,usernameLast,phoneNumber,selectedID})
    let sd = new FormData()
    sd.append('submission[8][first]',usernameFirst)
@@ -67,7 +64,7 @@ return axios({
    headers: { "Content-Type": "multipart/form-data" },   
  });
 }
-export const editPetStatusForBack = (selectedID) =>{
+export const editPetReturn = (selectedID) =>{
    let sd = new FormData()
    sd.append('submission[11]','Derelict')
 return axios({
@@ -79,9 +76,9 @@ return axios({
 }
 
 
-export const deleteSubmission = (candidatesID) =>{
+export const deleteCandidate = (candidatesID) =>{
    console.log(candidatesID)
-   return axios.delete(`https://api.jotform.com/submission/${candidatesID.ownerID}?apiKey=${apikey}`)
+   return axios.delete(`https://api.jotform.com/submission/${candidatesID.candidateID}?apiKey=${apikey}`)
 }
 
 
