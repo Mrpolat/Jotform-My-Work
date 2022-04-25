@@ -4,6 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { deleteCandidate, editCandidateStatus, editPetReturn, editAdoptedAnimal } from '../api/api';
 import { useAction } from './action';
+import { useModal } from './modal';
 
 const CandidateContext = createContext();
 
@@ -13,6 +14,7 @@ export const CandidateProvider = ({ children }) => {
 
     const [candidateID, setCandidateID] = useState()//rightsidebar da adaylar üzerinde tıklanılanılan kişinin Id si
     const [successDelete, setSuccessDelete] = useState(false)//aday silme işleminde requestin durumunu setler
+    const ModalContext = useModal()
     const submissionContext = useAction()
     let selectedID = submissionContext.selectedID
 
@@ -26,11 +28,13 @@ export const CandidateProvider = ({ children }) => {
     const handleEditAdoptedAnimal = ({ usernameFirst, usernameLast, phoneNumber }) => {
         editAdoptedAnimal({ usernameFirst, usernameLast, phoneNumber, selectedID }).then(response => {
             console.log(response)
+            ModalContext.setModalContent("adoptionAnimal")
         })
     }
     const handlePetReturn = () => {
         editPetReturn(selectedID).then(response => {
             console.log(response)
+            ModalContext.setModalContent("returnAnimal")
         })
     }
     const handleDeleteCandidate = () => {
@@ -39,6 +43,7 @@ export const CandidateProvider = ({ children }) => {
                 console.log(response)
                 if (response.data.responseCode === 200) {
                     setSuccessDelete(true)
+                    ModalContext.setModalContent("deleteCandidate")
                 }
             })
     }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSub } from '../../context/submission';
 import {
   useParams,
@@ -9,18 +9,19 @@ import PetTitle from './PetInformation/PetTitle';
 import PetAdoptionButton from './PetInformation/PetAdoptionButton';
 import PetBackHomeButton from './PetInformation/PetBackHomeButton';
 import RightSideBar from '../RightSideBar';
+import { useAction } from '../../context/action';
 
 const MainSection = () => {
 
   const { animalSubmissions } = useSub();
-  // const { indexItem, setHandleSelectedID } = useAction();
+  const {setHandleSelectedID } = useAction();
 
   // let animalInformation = animalSubmissions[indexItem];
   let { subid } = useParams();
 
-  // useEffect(() => {
-  //   setHandleSelectedID(subid);
-  // }, [setHandleSelectedID, subid]);
+  useEffect(() => {
+    setHandleSelectedID(subid);
+  }, [setHandleSelectedID, subid]);
 
   return (
     <div className='jfMainSection'>

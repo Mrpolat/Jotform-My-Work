@@ -11,7 +11,7 @@ export const ActionProvider = ({ children }) => {
 
     const [indexItem, setIndexItem] = useState();//sidebarda seçilen itemın indexini setler
     const [selectedID, setSelectedID] = useState("");//router yapısında ki urlden gelen id yi setler   
-
+    
     const whichItemSelect = (e) => setIndexItem(e);
     const handleSelectedIDChange = (e) => setSelectedID(e);
 

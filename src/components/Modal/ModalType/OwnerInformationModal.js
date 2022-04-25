@@ -27,8 +27,7 @@ const OwnerInformationModal = () => {
 
   return (
     <Modal>
-      <div>{(successDelete === false) ? (
-
+      <div>{
         adaptionSubmissions.map(sub => (sub.id === candidateID) ?
           (
             <div
@@ -61,10 +60,7 @@ const OwnerInformationModal = () => {
               </button>
             </div>
           ) : null)
-      ) : <div>
-        <AiOutlineCheckCircle className='OutlineCheck' />
-        <div className='success'>Delete successful</div>
-      </div>}
+      }
       </div>
     </Modal>
   )
