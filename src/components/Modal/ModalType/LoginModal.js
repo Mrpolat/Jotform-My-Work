@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { AiOutlineCheckCircle } from 'react-icons/ai'
 import Modal from '..';
 import { useUser } from '../../../context/user';
 
 const LoginModal = () => {
 
-  const { success, error, setLogin } = useUser();
+  const { error, setLogin } = useUser();
   const [inputUsername, setInputUsername] = useState('');
   const [inputPassword, setInputPassword] = useState('');
 
@@ -14,8 +13,8 @@ const LoginModal = () => {
   }
   return (
     <Modal>
-      <div className='jfuserLogin'>{(success === false) ?
-        (<div>
+      <div className='jfuserLogin'>
+        <div>
           <label className='jfuserLogin-item jfuserLogin-label' htmlFor="" >Username or Email</label>
           <input className='jfuserLogin-item jfuserLogin-input' type="email" name='email' value={inputUsername} onInput={e => setInputUsername(e.target.value)} />
 
@@ -28,11 +27,8 @@ const LoginModal = () => {
               Warning! {error}
             </div>
             : null}
-        </div>)
-        : <div>
-          <AiOutlineCheckCircle className='OutlineCheck' />
-          <div className='success'>Login successful</div>
-        </div>}
+        </div>
+         
       </div>
     </Modal>
   )

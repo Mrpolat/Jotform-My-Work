@@ -29,8 +29,8 @@ const MainSection = () => {
         animalSubmissions.map(sub => sub.id === subid ?
           (
             <div key={sub.id} >
-              <PetImage prop={sub.answers[4].answer[0]} />
-              <PetTitle prop={sub.answers[7].answer} />
+              <PetImage prop={sub.answers[4].answer[0]}/>
+              <PetTitle prop={sub.answers[7].answer}/>
               <PetDescription>
                 <div className='jfMainSection-information-item'>Owner: {sub.answers[8].answer.first + " " + sub.answers[8].answer.last}</div>
                 <div className='jfMainSection-information-item' >Adoption Status: {sub.answers[11].answer}</div>

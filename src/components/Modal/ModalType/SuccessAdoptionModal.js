@@ -1,12 +1,12 @@
-import React from 'react'
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import React from 'react';
+import { ReactComponent as IconHappyCat } from '../../../assets/iconHappyCat.svg';
 import Modal from '..'
 
 const SuccessAdoptionModal = () => {
     return (
         <Modal>
             <div>
-                <AiOutlineCheckCircle className='OutlineCheck' />
+                <IconHappyCat/>
                 <div className='success'>Adoption Successful</div>
             </div>
         </Modal>

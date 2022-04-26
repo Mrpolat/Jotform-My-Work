@@ -6,8 +6,8 @@ import { useAction } from '../../context/action';
 const SideBar = () => {
 
   const { animalSubmissions } = useSub();
-  const {setIndexItem} = useAction();
-
+  const {setIndexItem,selectedID} = useAction();
+  
   return (
     <div className='jfSideBar'>
       {

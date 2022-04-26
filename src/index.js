@@ -10,18 +10,19 @@ import { ModalProvider } from './context/modal';
 import { CandidateProvider } from './context/candidate';
 
 ReactDOM.render(
+
   <React.StrictMode>
-    <UserProvider>
-      <SubProvider>
-        <ActionProvider>
-          <ModalProvider>
+    <ModalProvider>
+      <UserProvider>
+        <SubProvider>
+          <ActionProvider>
             <CandidateProvider>
               <App />
             </CandidateProvider>
-          </ModalProvider>
-        </ActionProvider>
-      </SubProvider>
-    </UserProvider>
+          </ActionProvider>
+        </SubProvider>
+      </UserProvider>
+    </ModalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

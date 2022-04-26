@@ -12,7 +12,6 @@ const Index = () => {
         <Header />
         <SideBar />
         <Routes>
-          <Route exact path='/' element={<MainSection />} />
           <Route path='/:subid' element={<MainSection />} />
           <Route path='/:subid/AdaptionForm' element={<PetAdoptionForm />} />
         </Routes>        

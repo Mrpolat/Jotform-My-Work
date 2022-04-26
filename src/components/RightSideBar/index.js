@@ -28,7 +28,7 @@ const RightSideBar = () => {
             key={sub.id}
             className='jfRightSideBar-item'>
             <div className='jfRightSideBar-pad'>
-              <span className=''>
+              <span className='asd'>
                 {sub.answers[4].answer.first + " " + sub.answers[4].answer.last}
               </span>
             </div>

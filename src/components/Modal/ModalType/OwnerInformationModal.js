@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import Modal from '..';
 import { useSub } from '../../../context/submission';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { useCandidate } from '../../../context/candidate';
 import classNames from 'classnames';
 
 const OwnerInformationModal = () => {
   const [agree, setAgree] = useState(false);
   const { adaptionSubmissions } = useSub();
-  const { successDelete, candidateID, editAdoptedAnimal, deleteCandidate, editCandidateStatus } = useCandidate();
+  const { candidateID, editAdoptedAnimal, deleteCandidate, editCandidateStatus } = useCandidate();
 
   const checkboxHandler = () => {
     // if agree === true, it will be set to false
