@@ -2,20 +2,21 @@ import React from 'react'
 import { useSub } from '../../context/submission';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-import { useAction } from '../../context/action';
+import SearchBar from '../SearchBar';
 const SideBar = () => {
 
   const { animalSubmissions } = useSub();
-  const {setIndexItem,selectedID} = useAction();
   
   return (
     <div className='jfSideBar'>
+      {/* <div>
+        <SearchBar/>
+      </div> */}
       {
-        animalSubmissions.map((sub,index) =>
+        animalSubmissions.map((sub) =>
           <Link
             to={sub.id}
             key={sub.id}
-            onClick={()=>setIndexItem(index)}
             className={classnames('jfSideBar-item', sub.answers[11].answer === 'Derelict' && 'jfSideBar-item')}>
             <div className='jfSideBar-item-pad'>
                <span className='jfSideBar-item-petName'>

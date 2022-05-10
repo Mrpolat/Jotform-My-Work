@@ -14,13 +14,13 @@ ReactDOM.render(
   <React.StrictMode>
     <ModalProvider>
       <UserProvider>
-        <SubProvider>
-          <ActionProvider>
+        <ActionProvider>
+          <SubProvider>
             <CandidateProvider>
               <App />
             </CandidateProvider>
-          </ActionProvider>
-        </SubProvider>
+          </SubProvider>
+        </ActionProvider>
       </UserProvider>
     </ModalProvider>
   </React.StrictMode>,

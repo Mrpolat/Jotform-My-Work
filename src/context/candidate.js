@@ -15,8 +15,8 @@ export const CandidateProvider = ({ children }) => {
     const [candidateID, setCandidateID] = useState()//rightsidebar da adaylar üzerinde tıklanılanılan kişinin Id si
     const [successDelete, setSuccessDelete] = useState(false)//aday silme işleminde requestin durumunu setler
     const ModalContext = useModal()
-    const submissionContext = useAction()
-    let selectedID = submissionContext.selectedID
+    const ActionContext = useAction()
+    let selectedID = ActionContext.selectedID
 
     const handleCandidateID = (e) => setCandidateID(e);
 
