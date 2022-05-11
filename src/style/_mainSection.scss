@@ -36,12 +36,11 @@
         text-decoration: none;
         color: white;
     }
-    &-title{
-        
+    &-title{        
         display: inline-block;
-        position: absolute;
-        font-size: 50px;
-        margin: 50px;
+        font-size: 40px;
+        padding-left: 27px;
+        width: 75%;
     }
     &-jfImage{      
         border-radius: 2em;        

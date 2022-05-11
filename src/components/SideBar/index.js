@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar';
 const SideBar = () => {
 
   const { animalSubmissions } = useSub();
-  
+  console.log(React.version)
   return (
     <div className='jfSideBar'>
       {/* <div>

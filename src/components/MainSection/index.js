@@ -10,42 +10,57 @@ import PetAdoptionButton from './PetInformation/PetAdoptionButton';
 import PetBackHomeButton from './PetInformation/PetBackHomeButton';
 import RightSideBar from '../RightSideBar';
 import { useAction } from '../../context/action';
-
 const MainSection = () => {
 
-  const { animalSubmissions,index } = useSub();
+  const { animalSubmissions, index } = useSub();
   const { setHandleSelectedID } = useAction();
 
   let animalInformation = animalSubmissions[index];
   let { subid } = useParams();
-
   useEffect(() => {
     setHandleSelectedID(subid);
   }, [setHandleSelectedID, subid]);
 
+  let AnswerData = {
+    ID:'',IMAGE:'', TITLE:'',OWNERFIRST:'',OWNERLAST:'',AdopStatus:'',PETID:'',PHONENUMBER:'',BREEDOF:'',ABOUTANIMAL:''
+  }
+
+  if (animalInformation) {
+    AnswerData.ID=animalInformation.id;
+    AnswerData.IMAGE=animalInformation.answers[4].answer[0];
+    AnswerData.TITLE=animalInformation.answers[7].answer;
+    AnswerData.OWNERFIRST=animalInformation.answers[8].answer.first;
+    AnswerData.OWNERLAST=animalInformation.answers[8].answer.last;
+    AnswerData.AdopStatus=animalInformation.answers[11].answer;
+    AnswerData.PETID=animalInformation.id;
+    AnswerData.PHONENUMBER=animalInformation.answers[9].answer.full;
+    AnswerData.BREEDOF=animalInformation.answers[6].answer;
+    AnswerData.ABOUTANIMAL=animalInformation.answers[5].answer;
+  }
+  
   return (
     <div className='jfMainSection'>
       {
         ((animalInformation) ?
-          (<div key={animalInformation.id}>
-            <PetImage prop={animalInformation.answers[4].answer[0]} />
-            <PetTitle prop={animalInformation.answers[7].answer} />
+          (<div key={AnswerData.ID}>
+            <PetImage prop={AnswerData.IMAGE} />
+            <PetTitle prop={AnswerData.TITLE} />
             <PetDescription>
-              <div className='jfMainSection-information-item'>Owner: {animalInformation.answers[8].answer.first + " " + animalInformation.answers[8].answer.last}</div>
-              <div className='jfMainSection-information-item'>Adoption Status: {animalInformation.answers[11].answer}</div>
-              <div className='jfMainSection-information-item'>Pet Id: {animalInformation.id}</div>
-              <div className='jfMainSection-information-item'>Phone Number: {animalInformation.answers[9].answer.full}</div>
-              <div className='jfMainSection-information-item'>Breed of: {animalInformation.answers[6].answer}</div>
-              <div className='jfMainSection-information-item'>About Animal: {animalInformation.answers[5].answer}</div>
+              <div className='jfMainSection-information-item'>Owner: {AnswerData.OWNERFIRST + " " + AnswerData.OWNERLAST}</div>
+              <div className='jfMainSection-information-item'>Adoption Status: {AnswerData.AdopStatus}</div>
+              <div className='jfMainSection-information-item'>Pet Id: {AnswerData.PETID}</div>
+              <div className='jfMainSection-information-item'>Phone Number: {AnswerData.PHONENUMBER}</div>
+              <div className='jfMainSection-information-item'>Breed of: {AnswerData.BREEDOF}</div>
+              <div className='jfMainSection-information-item'>About Animal: {AnswerData.ABOUTANIMAL}</div>
               <div className='jfMainSection-information-item'>{
-                (animalInformation.answers[11].answer === 'Derelict') ? (
+                (AnswerData.AdopStatus === 'Derelict') ? (
                   <PetAdoptionButton />
                 ) : <PetBackHomeButton />
               }</div>
             </PetDescription>
             <div>
               {
-                (animalInformation.answers[11].answer === 'Derelict') ? (
+                (AnswerData.AdopStatus === 'Derelict') ? (
                   <RightSideBar />
                 ) : null
               }
