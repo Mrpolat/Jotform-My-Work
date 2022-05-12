@@ -9,6 +9,7 @@ import { SubProvider } from './context/submission'
 import { ActionProvider } from './context/action';
 import { ModalProvider } from './context/modal';
 import { CandidateProvider } from './context/candidate';
+import { DataProvider } from './context/data';
 
 ReactDOM.render(
 
@@ -18,7 +19,9 @@ ReactDOM.render(
         <ActionProvider>
           <SubProvider>
             <CandidateProvider>
+              <DataProvider>
               <App />
+              </DataProvider>
             </CandidateProvider>
           </SubProvider>
         </ActionProvider>

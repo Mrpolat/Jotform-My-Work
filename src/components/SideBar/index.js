@@ -2,11 +2,10 @@ import React from 'react'
 import { useSub } from '../../context/submission';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-import SearchBar from '../SearchBar';
+// import SearchBar from '../SearchBar';
 const SideBar = () => {
 
   const { animalSubmissions } = useSub();
-  console.log(React.version)
   return (
     <div className='jfSideBar'>
       {/* <div>

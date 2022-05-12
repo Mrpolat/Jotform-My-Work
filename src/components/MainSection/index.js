@@ -10,38 +10,21 @@ import PetAdoptionButton from './PetInformation/PetAdoptionButton';
 import PetBackHomeButton from './PetInformation/PetBackHomeButton';
 import RightSideBar from '../RightSideBar';
 import { useAction } from '../../context/action';
+import { useData } from '../../context/data';
 const MainSection = () => {
+  
+  const { setHandleSelectedID,setFormType } = useAction();
+  const { AnswerData } = useData();
 
-  const { animalSubmissions, index } = useSub();
-  const { setHandleSelectedID } = useAction();
-
-  let animalInformation = animalSubmissions[index];
   let { subid } = useParams();
   useEffect(() => {
     setHandleSelectedID(subid);
   }, [setHandleSelectedID, subid]);
 
-  let AnswerData = {
-    ID:'',IMAGE:'', TITLE:'',OWNERFIRST:'',OWNERLAST:'',AdopStatus:'',PETID:'',PHONENUMBER:'',BREEDOF:'',ABOUTANIMAL:''
-  }
-
-  if (animalInformation) {
-    AnswerData.ID=animalInformation.id;
-    AnswerData.IMAGE=animalInformation.answers[4].answer[0];
-    AnswerData.TITLE=animalInformation.answers[7].answer;
-    AnswerData.OWNERFIRST=animalInformation.answers[8].answer.first;
-    AnswerData.OWNERLAST=animalInformation.answers[8].answer.last;
-    AnswerData.AdopStatus=animalInformation.answers[11].answer;
-    AnswerData.PETID=animalInformation.id;
-    AnswerData.PHONENUMBER=animalInformation.answers[9].answer.full;
-    AnswerData.BREEDOF=animalInformation.answers[6].answer;
-    AnswerData.ABOUTANIMAL=animalInformation.answers[5].answer;
-  }
-  
   return (
     <div className='jfMainSection'>
       {
-        ((animalInformation) ?
+        ((AnswerData) ?
           (<div key={AnswerData.ID}>
             <PetImage prop={AnswerData.IMAGE} />
             <PetTitle prop={AnswerData.TITLE} />
@@ -54,7 +37,7 @@ const MainSection = () => {
               <div className='jfMainSection-information-item'>About Animal: {AnswerData.ABOUTANIMAL}</div>
               <div className='jfMainSection-information-item'>{
                 (AnswerData.AdopStatus === 'Derelict') ? (
-                  <PetAdoptionButton />
+                  <PetAdoptionButton formtype={setFormType('Adoption')}/>
                 ) : <PetBackHomeButton />
               }</div>
             </PetDescription>
