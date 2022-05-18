@@ -19,9 +19,7 @@ ReactDOM.render(
         <ActionProvider>
           <SubProvider>
             <CandidateProvider>
-              <DataProvider>
               <App />
-              </DataProvider>
             </CandidateProvider>
           </SubProvider>
         </ActionProvider>

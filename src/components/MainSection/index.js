@@ -11,10 +11,11 @@ import PetBackHomeButton from './PetInformation/PetBackHomeButton';
 import RightSideBar from '../RightSideBar';
 import { useAction } from '../../context/action';
 import { useData } from '../../context/data';
+import { AnimalData } from '../../Data/AnimalSubData';
 const MainSection = () => {
-  
-  const { setHandleSelectedID,setFormType } = useAction();
-  const { AnswerData } = useData();
+
+  const { setHandleSelectedID } = useAction();
+  let AnswerData = AnimalData();
 
   let { subid } = useParams();
   useEffect(() => {
@@ -24,33 +25,30 @@ const MainSection = () => {
   return (
     <div className='jfMainSection'>
       {
-        ((AnswerData) ?
-          (<div key={AnswerData.ID}>
-            <PetImage prop={AnswerData.IMAGE} />
-            <PetTitle prop={AnswerData.TITLE} />
-            <PetDescription>
-              <div className='jfMainSection-information-item'>Owner: {AnswerData.OWNERFIRST + " " + AnswerData.OWNERLAST}</div>
-              <div className='jfMainSection-information-item'>Adoption Status: {AnswerData.AdopStatus}</div>
-              <div className='jfMainSection-information-item'>Pet Id: {AnswerData.PETID}</div>
-              <div className='jfMainSection-information-item'>Phone Number: {AnswerData.PHONENUMBER}</div>
-              <div className='jfMainSection-information-item'>Breed of: {AnswerData.BREEDOF}</div>
-              <div className='jfMainSection-information-item'>About Animal: {AnswerData.ABOUTANIMAL}</div>
-              <div className='jfMainSection-information-item'>{
-                (AnswerData.AdopStatus === 'Derelict') ? (
-                  <PetAdoptionButton name={'Adoption'}/>
-                ) : <PetBackHomeButton />
-              }</div>
-            </PetDescription>
-            <div>
-              {
-                (AnswerData.AdopStatus === 'Derelict') ? (
-                  <RightSideBar />
-                ) : null
-              }
-            </div>
+        <div key={AnswerData.id}>
+          <PetImage prop={AnswerData.Image} />
+          <PetTitle prop={AnswerData.Title} />
+          <PetDescription>
+            <div className='jfMainSection-information-item'>Owner: {AnswerData.OwnerFirst + " " + AnswerData.OwnerLast}</div>
+            <div className='jfMainSection-information-item'>Adoption Status: {AnswerData.AdopStatus}</div>
+            <div className='jfMainSection-information-item'>Pet Id: {AnswerData.PetID}</div>
+            <div className='jfMainSection-information-item'>Phone Number: {AnswerData.PhoneNumber}</div>
+            <div className='jfMainSection-information-item'>Breed of: {AnswerData.BreedOf}</div>
+            <div className='jfMainSection-information-item'>About Animal: {AnswerData.AboutAnimal}</div>
+            <div className='jfMainSection-information-item'>{
+              (AnswerData.AdopStatus === 'Derelict') ? (
+                <PetAdoptionButton name={'Adoption'} />
+              ) : <PetBackHomeButton />
+            }</div>
+          </PetDescription>
+          <div>
+            {
+              (AnswerData.AdopStatus === 'Derelict') ? (
+                <RightSideBar />
+              ) : null
+            }
           </div>
-          ) : null
-        )
+        </div>
       }
 
     </div>
