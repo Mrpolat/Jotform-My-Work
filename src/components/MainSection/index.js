@@ -37,7 +37,7 @@ const MainSection = () => {
               <div className='jfMainSection-information-item'>About Animal: {AnswerData.ABOUTANIMAL}</div>
               <div className='jfMainSection-information-item'>{
                 (AnswerData.AdopStatus === 'Derelict') ? (
-                  <PetAdoptionButton formtype={setFormType('Adoption')}/>
+                  <PetAdoptionButton name={'Adoption'}/>
                 ) : <PetBackHomeButton />
               }</div>
             </PetDescription>

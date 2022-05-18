@@ -13,6 +13,7 @@ const Index = () => {
         <SideBar />
         <Routes>
           <Route path='/:subid' element={<MainSection />} />
+          <Route path='/AdaptionForm' element={<PetAdoptionForm />} />
           <Route path='/:subid/AdaptionForm' element={<PetAdoptionForm />} />
         </Routes>        
       </Router>

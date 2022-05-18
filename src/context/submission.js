@@ -14,8 +14,8 @@ export const SubProvider = ({ children }) => {
     const [animalSubmissions, setAnimalSubmissions] = useState([]);
     const [animalSubİD, setAnimalSubİD] = useState([])   
     const [adaptionSubmissions, setAdaptionSubmissions] = useState([]); 
-
     const ActionContext = useAction()
+
     let selectedID = ActionContext.selectedID
 
     let definedID = animalSubİD.indexOf(selectedID)
@@ -26,18 +26,19 @@ export const SubProvider = ({ children }) => {
             setAnimalSubmissions(response.data.content)
         })
     }, []);
-    useEffect(() => {
-        formAdaptionSubmissions().then(response => {
-            setAdaptionSubmissions(response.data.content)
-           
-        })
-    }, []);    
+    //find()
     useEffect(() => {
         animalSubmissions.map(data=>{
           return setAnimalSubİD(oldArray => [...oldArray, data.id])
         })      
     }, [animalSubmissions]);
-   
+
+
+    useEffect(() => {
+        formAdaptionSubmissions().then(response => {
+            setAdaptionSubmissions(response.data.content)           
+        })
+    }, []);
    
     return (
         <SubContext.Provider value={{

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const PetAdoptionButton = () => {
+const PetAdoptionButton = ({name}) => {
   return (
-    <div className='AdoptionButton'><Link className='jfMainSection-AdaptionForm' to="AdaptionForm">Adoption</Link> </div>
+    <div className='AdoptionButton'><Link className='jfMainSection-AdaptionForm' to="AdaptionForm">{name}</Link> </div>
   )
 }
 

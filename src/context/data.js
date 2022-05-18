@@ -11,12 +11,14 @@ export const useData = () => useContext(DataContext)
 export const DataProvider = ({ children }) => {
 
     const subContext = useSub();
+
     let definedID = subContext.definedID
     let animalInformation = subContext.animalSubmissions[definedID];
 
+
     let AnswerData = {
         ID:'',IMAGE:'', TITLE:'',OWNERFIRST:'',OWNERLAST:'',AdopStatus:'',PETID:'',PHONENUMBER:'',BREEDOF:'',ABOUTANIMAL:''
-      }
+    }
     if (animalInformation) {
         AnswerData.ID=animalInformation.id;
         AnswerData.IMAGE=animalInformation.answers[4].answer[0];
@@ -29,7 +31,7 @@ export const DataProvider = ({ children }) => {
         AnswerData.BREEDOF=animalInformation.answers[6].answer;
         AnswerData.ABOUTANIMAL=animalInformation.answers[5].answer;
       }
-     
+ 
     return (
         <DataContext.Provider value={{
             AnswerData

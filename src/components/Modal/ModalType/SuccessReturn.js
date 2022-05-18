@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactComponent as IconSadCat } from '../../../assets/iconSadCat.svg';
 import Modal from '..';
 const SuccessReturn = () => {
+    
     return (
         <Modal>
             <div>

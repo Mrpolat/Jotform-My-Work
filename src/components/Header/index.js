@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoExitOutline } from 'react-icons/io5';
 import { ReactComponent as IconPetPaw } from '../../assets/iconPetPaw.svg';
 import { useModal } from '../../context/modal';
+import PetAdoptionButton from '../MainSection/PetInformation/PetAdoptionButton';
 
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
   return (
     <div className='jfHeader'>
 
-      <Link to="/" className='jfHeader-logo-title'>JOTFORMVTK <IconPetPaw className="jfHeader-logo" /> </Link>
+      <Link to="/" className='jfHeader-logo-title'>JOTFORMSHELTER<IconPetPaw className="jfHeader-logo" /> </Link>
       {success ? (<IoExitOutline className='ExitOutline' onClick={() => setSuccess(false)} />) : null}
       <button
         className='jfHeader-login'
@@ -30,9 +31,9 @@ const Header = () => {
             (userName) : 'Login'
         }
       </button>
-
-
-
+      <div className='jfHeader-menuItem'>
+        <PetAdoptionButton name={'Animal'}/>
+      </div>
     </div>
   )
 }

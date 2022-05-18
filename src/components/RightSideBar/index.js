@@ -8,8 +8,7 @@ const RightSideBar = () => {
   const { adaptionSubmissions } = useSub();
   const { selectedID } = useAction();
   const { setModalContent, setModal } = useModal();
-  const {setCandidateID}=useCandidate();
-  
+  const {setCandidateID}=useCandidate();  
   const HandleEvent = (e) => {
     setModal(true);
     setModalContent("ownerInformation");
@@ -28,7 +27,7 @@ const RightSideBar = () => {
             key={sub.id}
             className='jfRightSideBar-item'>
             <div className='jfRightSideBar-pad'>
-              <span className='asd'>
+              <span className=''>
                 {sub.answers[4].answer.first + " " + sub.answers[4].answer.last}
               </span>
             </div>
