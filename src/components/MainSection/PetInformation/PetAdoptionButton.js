@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const PetAdoptionButton = ({name}) => {
+const PetAdoptionButton = (props) => {
   return (
-    <div className='AdoptionButton'><Link className='jfMainSection-AdaptionForm' to="AdaptionForm">{name}</Link> </div>
+    <div className={props.style}><Link className={props.linkStyle} to="AdaptionForm">{props.name}</Link> </div>
   )
 }
 

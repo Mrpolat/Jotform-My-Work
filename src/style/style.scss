@@ -25,18 +25,19 @@ body{
     text-transform: uppercase;
     font-size: 18px;
 }
-.ExitOutline{
-    color: white;
-    position: relative;
-    right: 8px;
-    top: 30px;   
-    float: right;
-    font-size: 40px;
-    cursor: pointer;
-
-}
 .answer{
   width: 400px;
+}
+#headerLine:before {
+  content: "";
+  display: table;
+  background: #C3CAD8;
+  width: 1px;
+  height: 44px;
+  position: relative;
+  top: 21px;
+  right: 15px;
+  float: right;
 }
 //Alert Message
 .alert {

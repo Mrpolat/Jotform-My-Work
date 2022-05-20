@@ -31,17 +31,22 @@ const Header = () => {
         relative 
         float-left 
         text-2xl 
-        pt-6 
-        pl-5 ' 
+        p-4
+        ' 
         to="/" >
         jotformshelter
         <IconPetPaw className="inline pl-2" />
       </Link>
       {success ? 
-      (<IoExitOutline className='ExitOutline' onClick={() => setSuccess(false)} />) : 
+      (
+      <div className='float-right relative top-8 pr-8 '>
+      <IoExitOutline className='' onClick={() => setSuccess(false)} />
+      </div>
+      ) : 
       null}
+      <div className='float-right relative top-3 pr-8 '>
       <button
-        className='jfHeader-login'
+        className='bg-loginBg text-white p-5 rounded-2xl'
         onClick={() => handleEvent()}
         style={success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' }} >
         {
@@ -50,9 +55,14 @@ const Header = () => {
             : 'Login'
         }
       </button>
-      <div className='jfHeader-menuItem'>
-        <PetAdoptionButton name={'Animal'} />
       </div>
+      <div id='headerLine'>
+        {/* çizgi */}
+      </div>
+      <div  className='float-right relative top-8 pr-8 '>
+        <PetAdoptionButton style={"text-white"} linkStyle={"hover:text-loginBg"} name={'Animal Form'} />
+      </div>
+      
     </div>
   )
 }

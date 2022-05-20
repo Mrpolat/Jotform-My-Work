@@ -37,8 +37,6 @@ const SideBar = () => {
 
   }, [checkBoxFilter])
 
-
-
   return (
     <div className='jfSideBar'>
       <div>

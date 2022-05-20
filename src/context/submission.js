@@ -12,13 +12,11 @@ export const useSub = () => useContext(SubContext)
 export const SubProvider = ({ children }) => {
 
     const [animalSubmissions, setAnimalSubmissions] = useState([]);
-    const [animalSubİD, setAnimalSubİD] = useState([])   
-    const [adaptionSubmissions, setAdaptionSubmissions] = useState([]); 
+    const [adaptionSubmissions, setAdaptionSubmissions] = useState([]);
+    const [animalParsedData, setAnimalParsedData] = useState()
+    const [adaptionParsedData, setAdaptionParsedData] = useState([])
     const ActionContext = useAction()
-
     let selectedID = ActionContext.selectedID
-
-    let definedID = animalSubİD.indexOf(selectedID)
 
     useEffect(() => {
         formAnimalSubmissions().then(response => {
@@ -28,24 +26,32 @@ export const SubProvider = ({ children }) => {
     }, []);
     //find()
     useEffect(() => {
-        animalSubmissions.map(data=>{
-          return setAnimalSubİD(oldArray => [...oldArray, data.id])
-        })      
-    }, [animalSubmissions]);
+        setAnimalParsedData(animalSubmissions.find(sub => sub.id === selectedID))
+    }, [animalSubmissions, selectedID]);
 
+    useEffect(() => {
+        adaptionParsedData.splice(0,adaptionParsedData.length)
+        adaptionSubmissions.map(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending")?
+        (
+            setAdaptionParsedData(oldArray=>[...oldArray, sub])
+        ):
+        null        
+        )
+    }, [adaptionSubmissions, selectedID]);
 
     useEffect(() => {
         formAdaptionSubmissions().then(response => {
-            setAdaptionSubmissions(response.data.content)           
+            setAdaptionSubmissions(response.data.content)
         })
     }, []);
-   
+
     return (
         <SubContext.Provider value={{
-            definedID,
+            animalParsedData,
+            adaptionParsedData,
             animalSubmissions,
             adaptionSubmissions,
-            }}>
+        }}>
             {children}
         </SubContext.Provider>
     );
