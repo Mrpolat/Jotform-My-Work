@@ -6,50 +6,52 @@
     bottom: 0;
     right: 0;
     left: 20%;
-    &-information{
-        font-size: 20px;
-        &-item{
-            padding: 3px;
-            padding-left: 27px;
-            width: 75%;
-        }
-        &-button{
-            height: 50px;
-            line-height: 45px;
-            width: 100px;
-            background-color: #01a301;
-            color: white;
-            font-weight: bold;
-            border-radius: 20px;
-            font-size: 15px;
-            cursor: pointer;
-            text-align:center;
-            &:hover{
-                transition: 0.5s;
-                font-size: 18px;
-                background-color: #08db08;
-            }
-        }      
+    // &-information{
+    //     font-size: 20px;
+    //     &-item{
+    //         padding: 3px;
+    //         padding-left: 27px;
+    //         width: 75%;
+    //     }
+    //     &-button{
+    //         height: 50px;
+    //         line-height: 45px;
+    //         width: 100px;
+    //         background-color: #01a301;
+    //         color: white;
+    //         font-weight: bold;
+    //         border-radius: 20px;
+    //         font-size: 15px;
+    //         cursor: pointer;
+    //         text-align:center;
+    //         &:hover{
+    //             transition: 0.5s;
+    //             font-size: 18px;
+    //             background-color: #08db08;
+    //         }
+    //     }      
           
-    }
-    &-AdaptionForm{        
-        text-decoration: none;
-        color: white;
-    }
-    &-title{        
-        display: inline-block;
-        font-size: 40px;
-        padding-left: 27px;
-        width: 75%;
-    }
+    // }
+    // &-AdaptionForm{        
+    //     text-decoration: none;
+    //     color: white;
+    // }
+    // &-title{        
+    //     display: inline-block;
+    //     font-size: 40px;
+    //     padding-left: 27px;
+    //     width: 75%;
+    // }
     &-jfImage{      
-        border-radius: 2em;        
-        width:350px;
-        height: 270px;  
-        background-repeat: no-repeat;
-        background-size: 350px 270px;
-        position: relative;
+        border-radius: 2em !important;        
+        width:350px!important;
+        height: 270px!important;  
+        position: relative !important;
         margin:30px;
     }
 
+}
+.deneme{
+    width: 350px !important;;
+        height: 270px; 
 }

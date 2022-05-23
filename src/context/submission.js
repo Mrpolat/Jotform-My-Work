@@ -29,6 +29,7 @@ export const SubProvider = ({ children }) => {
         setAnimalParsedData(animalSubmissions.find(sub => sub.id === selectedID))
     }, [animalSubmissions, selectedID]);
 
+    
     useEffect(() => {
         adaptionParsedData.splice(0,adaptionParsedData.length)
         adaptionSubmissions.map(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending")?
@@ -42,6 +43,7 @@ export const SubProvider = ({ children }) => {
     useEffect(() => {
         formAdaptionSubmissions().then(response => {
             setAdaptionSubmissions(response.data.content)
+            console.log(response)
         })
     }, []);
 
