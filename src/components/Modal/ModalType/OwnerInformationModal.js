@@ -21,8 +21,7 @@ const OwnerInformationModal = () => {
       phoneNumber: passData[1]
     });
     editCandidateStatus();
-  }
-  
+  }  
   return (
     <Modal>
       <div>

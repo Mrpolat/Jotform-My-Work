@@ -39,7 +39,7 @@ export const SubProvider = ({ children }) => {
         null        
         )
     }, [adaptionSubmissions, selectedID]);
-
+    
     useEffect(() => {
         formAdaptionSubmissions().then(response => {
             setAdaptionSubmissions(response.data.content)

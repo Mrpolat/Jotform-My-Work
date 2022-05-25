@@ -8,16 +8,18 @@ const SideBar = () => {
 
   const { animalSubmissions } = useSub();
   const { selectedID } = useAction();
+
   const [agree, setAgree] = useState(false);
   const [status, setStatus] = useState('')
+  const [input, setInput] = useState('');
   const [checkBoxFilter, setcheckBoxFilter] = useState([])
   const [searchBoxFilter, setsearchBoxFilter] = useState([])
-  const [input, setInput] = useState('');
 
   const checkboxHandler = (e) => {
     setAgree(!agree);
     setStatus(e)
   }
+  //2. öncelik
   const updateInput = async (input) => {
     const filtered = checkBoxFilter.filter(sub => {
       return sub.answers[7].answer.toLowerCase().includes(input.toLowerCase())
@@ -25,6 +27,7 @@ const SideBar = () => {
     setInput(input);
     setsearchBoxFilter(filtered);
   }
+  //1. öncelik
   useEffect(() => {
     if (agree === true) {
       setcheckBoxFilter(animalSubmissions.filter(sub => sub.answers[11].answer === status));
@@ -34,6 +37,7 @@ const SideBar = () => {
     }
   }, [animalSubmissions, agree, status])
 
+  // 3.öncelik
   useEffect(() => {
     setsearchBoxFilter(checkBoxFilter)
   }, [checkBoxFilter])
@@ -65,10 +69,11 @@ const SideBar = () => {
       </div>
       {
         searchBoxFilter.map((sub) =>
-          <div  className={classnames('', (sub.id === selectedID) && " border-lowBlue bg-lowBlue border-solid")}>
+          <div className={classnames('', (sub.id === selectedID) && " border-lowBlue bg-lowBlue border-solid")}
+            key={sub.id}
+          >
             <Link
               to={sub.id}
-              key={sub.id}
               className={classnames('block h-[50px] bg-lowBlue border-solid border-[1px] text-black rounded-lg m-2', (sub.id === selectedID) && "border-2 border-solid")}>
               <div className='text-center'>
                 <div className='w-3/4 float-left inline'>

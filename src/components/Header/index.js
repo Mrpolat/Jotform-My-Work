@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useUser } from '../../context/user';
 import { Link } from 'react-router-dom';
 import { IoExitOutline } from 'react-icons/io5';
@@ -42,7 +42,7 @@ const Header = () => {
         <button
           className="bg-loginBg text-white p-5 rounded-2xl "
           onClick={() => handleEvent()}
-          style={success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' }} >
+          style={(success ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' })} >
           {
             success ?
               (userName)
