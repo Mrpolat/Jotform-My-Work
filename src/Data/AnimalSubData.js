@@ -22,7 +22,7 @@ export function AnimalData() {
         AnswerData.Title = animalParsedData.answers[7].answer;
         AnswerData.OwnerFirst = animalParsedData.answers[8].answer.first;
         AnswerData.OwnerLast = animalParsedData.answers[8].answer.last;
-        AnswerData.AdopStatus = animalParsedData.answers[11].answer;
+        AnswerData.AdopStatus = animalParsedData.answers[11].answer ;
         AnswerData.PetID = animalParsedData.id;
         AnswerData.PhoneNumber = animalParsedData.answers[9].answer.full;
         AnswerData.BreedOf = animalParsedData.answers[6].answer;

@@ -31,22 +31,18 @@ export const SubProvider = ({ children }) => {
 
     
     useEffect(() => {
-        adaptionParsedData.splice(0,adaptionParsedData.length)
-        adaptionSubmissions.map(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending")?
-        (
-            setAdaptionParsedData(oldArray=>[...oldArray, sub])
-        ):
-        null        
-        )
+        let candidates = adaptionSubmissions.filter(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending"))
+        setAdaptionParsedData(candidates)             
+        
     }, [adaptionSubmissions, selectedID]);
-    
+    console.log(adaptionParsedData)
     useEffect(() => {
         formAdaptionSubmissions().then(response => {
             setAdaptionSubmissions(response.data.content)
             console.log(response)
         })
     }, []);
-
+        
     return (
         <SubContext.Provider value={{
             animalParsedData,

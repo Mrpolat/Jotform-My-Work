@@ -20,6 +20,7 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
        user().then(response=>{
         setUserName(response.data.content.username)
+        console.log(response)
     })
       }, []);
       const handleLoginData = ({username,password}) => {

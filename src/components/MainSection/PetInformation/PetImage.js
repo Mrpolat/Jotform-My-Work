@@ -1,8 +1,9 @@
 import React from 'react'
 import { Image } from 'tailwind-react-ui'
-const petImage = ({prop}) => {
+
+const petImage = (prop) => {
   return (
-    <Image src={prop} className='w-[300px] h-[300px] absolute top-0 pb-1'/>
+    <img src={prop.Image} className='w-[280px] h-[260px] absolute top-[60px] left-[50px] pb-1 rounded-[20px] '/>
   )
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PetAdoptionButton = (props) => {
   return (
-    <div className={props.style}><Link className={props.linkStyle} to="AdaptionForm">{props.name}</Link> </div>
+    <div className={props.style}><Link className={props.linkStyle} to={props.path}>{props.name}</Link> </div>
   )
 }
 

@@ -66,7 +66,7 @@ const Header = () => {
         {/* çizgi */}
       </div>
       <div className='float-right relative top-8 pr-8 '>
-        <PetAdoptionButton style={"text-white"} linkStyle={"hover:text-loginBg"} name={'Animal Form'} />
+        <PetAdoptionButton style={"text-white"} linkStyle={"hover:text-loginBg"} path={"AnimalForm"} name={'Animal Form'} />
       </div>
       
 

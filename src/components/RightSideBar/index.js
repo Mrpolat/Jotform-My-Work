@@ -15,8 +15,6 @@ const RightSideBar = () => {
     setCandidateID(e);
   }
 
-  let deneme = HandleDate("2022-12-30 17:57:33")
-  console.log(deneme)
   return (
     <div className='w-[25%] h-auto mt-[1px] border-0 border-solid  inline absolute right-0 top-0 shadow-3xl rounded-2xl '>
       <div className='jfRightSideBar-title rounded-2xl rounded-b-none '>
@@ -37,7 +35,7 @@ const RightSideBar = () => {
                   </span>
                   <span className=''>
                     {
-                    HandleDate(sub.created_at)
+                   HandleDate(sub.created_at)
                     }
                   </span>
                 </div>

@@ -1,10 +1,8 @@
 .jfuserLogin {
     width: 300px;
-
     &-item {
         display: block;
     }
-
     &-input {
         margin-bottom: 15px;
         height: 40px;
@@ -13,18 +11,15 @@
         border-radius: 2px;
         padding-left: 15px;
         font-size: 16px;
-        font-weight: 500;   
-        box-sizing:border-box;
-
+        font-weight: 500;
+        box-sizing: border-box;
         &:focus {
             outline: 0;
             border-color: #6a9cff;
             background-color: #E8F0FE;
             box-shadow: 0 0 0 2px rgb(106 156 255 / 58%);
         }
-
     }
-
     &-button {
         background-color: #78bb07;
         border: none;
@@ -36,7 +31,6 @@
         font-weight: 500;
         margin-top: 30px;
         cursor: pointer;
-
         &:hover {
             background-color: #4eb100;
             border-color: #4eb100;
@@ -44,7 +38,6 @@
             transition: 0.3s;
         }
     }
-
     &-label {
         color: #2b3245;
         display: block;

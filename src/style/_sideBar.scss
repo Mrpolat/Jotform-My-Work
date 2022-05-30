@@ -16,48 +16,48 @@
     background: #ffffff;
     cursor: pointer;
     height: 60px;
-    // &:focus-within {
-    //   box-shadow: 5px 10px #888888;
-    //   border: 3px solid #2A95AA;
-    //   border-left: 10px solid #2A95AA;
-    // }
+    &:focus-within {
+      box-shadow: 5px 10px #888888;
+      border: 3px solid #2A95AA;
+      border-left: 10px solid #2A95AA;
+    }
 
-    // &:hover {
-    //   box-shadow: -1px 0 8px rgb(0 0 0 / 16%);
-    // }
+    &:hover {
+      box-shadow: -1px 0 8px rgb(0 0 0 / 16%);
+    }
 
-    // &-pad {
-    //   padding: 2px;
-    //   padding-left: 10px;
-    // }
+    &-pad {
+      padding: 2px;
+      padding-left: 10px;
+    }
 
-    // &-petName {
-    //   display: block;
-    //   font-weight: bold;
-    //   font-size: 20px;
-    // }
+    &-petName {
+      display: block;
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-    // &-ownerName {
-    //   display: inline-block;
-    //   font-size: 14px;
-    // }
+    &-ownerName {
+      display: inline-block;
+      font-size: 14px;
+    }
 
-    // &-status {
-    //   float: right;
-    //   background-color: #17ea45;
-    //   width: 60px;
-    //   text-align: center;
-    //   font-size: 10px;
-    //   padding: 3px;
-    //   text-transform: uppercase;
-    //   border-radius: 6px;
-    //   color: rgb(252, 252, 252);
-    //   font-weight: bold;
+    &-status {
+      float: right;
+      background-color: #17ea45;
+      width: 60px;
+      text-align: center;
+      font-size: 10px;
+      padding: 3px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      color: rgb(252, 252, 252);
+      font-weight: bold;
 
-    //   &-derelict {
-    //     background-color: red;
-    //   }
-    // }
+      &-derelict {
+        background-color: red;
+      }
+    }
   }
 
 

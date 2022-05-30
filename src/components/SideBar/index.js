@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar';
 import { useAction } from '../../context/action';
 const SideBar = () => {
 
-  const { animalSubmissions } = useSub();
+  const { animalSubmissions, setAdap } = useSub();
   const { selectedID } = useAction();
 
   const [agree, setAgree] = useState(false);
@@ -69,11 +69,10 @@ const SideBar = () => {
       </div>
       {
         searchBoxFilter.map((sub) =>
-          <div className={classnames('', (sub.id === selectedID) && " border-lowBlue bg-lowBlue border-solid")}
-            key={sub.id}
-          >
+          <div key={sub.id} className={classnames('', (sub.id === selectedID) && " border-lowBlue bg-lowBlue border-solid")}>
             <Link
               to={sub.id}
+              key={sub.id}
               className={classnames('block h-[50px] bg-lowBlue border-solid border-[1px] text-black rounded-lg m-2', (sub.id === selectedID) && "border-2 border-solid")}>
               <div className='text-center'>
                 <div className='w-3/4 float-left inline'>
@@ -84,7 +83,9 @@ const SideBar = () => {
                     {sub.answers[8].answer.first + " " + sub.answers[8].answer.last}
                   </span>
                 </div>
-                <div className={classnames('w-1/4 h-[50px] relative top-[-1px] right-[-1px] pt-3 rounded-r-lg float-right inline bg-orange', sub.answers[11].answer === 'Derelict' && 'bg-darkOrange', (sub.id === selectedID) && "rounded-r-none")}>
+                <div className={classnames('w-1/4 h-[50px] relative top-[-1px] right-[-1px] pt-3 rounded-r-lg float-right inline bg-orange',
+                  sub.answers[11].answer === 'Derelict' && 'bg-darkOrange',
+                  (sub.id === selectedID) && "rounded-r-none")}>
                   <span className='text-white font-bold'>
                     {(sub.answers[11].answer === 'Derelict') ? ("Derelict") : ("Owned")}
                   </span>

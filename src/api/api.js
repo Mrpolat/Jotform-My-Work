@@ -41,10 +41,11 @@ export const Login = ({username,password}) =>{
 // }
 export const editAdoptedAnimal = ({usernameFirst,usernameLast,phoneNumber,selectedID}) =>{
    console.log({usernameFirst,usernameLast,phoneNumber,selectedID})
+   console.log("api phone", phoneNumber)
    let sd = new FormData()
    sd.append('submission[8][first]',usernameFirst)
    sd.append('submission[8][last]',usernameLast)
-   sd.append('submission[9][full]',phoneNumber)
+   sd.append('submission[9][full]',phoneNumber.full)
    sd.append('submission[11]','Owned')
 return axios({
    method: 'post',

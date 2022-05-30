@@ -4,6 +4,7 @@ import MainSection from '../components/MainSection'
 import SideBar from '../components/SideBar'
 import PetAdoptionForm from '../components/PetAdoptionForm'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PetAnimalForm from '../components/PetAnimalForm'
 
 const Index = () => {
   return (
@@ -13,7 +14,7 @@ const Index = () => {
         <SideBar />
         <Routes>
           <Route path='/:subid' element={<MainSection />} />
-          <Route path='/AdaptionForm' element={<PetAdoptionForm />} />
+          <Route path='/AnimalForm' element={<PetAnimalForm />} />
           <Route path='/:subid/AdaptionForm' element={<PetAdoptionForm />} />
         </Routes>        
       </Router>
