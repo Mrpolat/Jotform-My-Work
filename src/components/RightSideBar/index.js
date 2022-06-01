@@ -3,7 +3,7 @@ import React from 'react'
 import { useCandidate } from '../../context/candidate';
 import { useModal } from '../../context/modal';
 import { useSub } from '../../context/submission';
-import { HandleDate } from '../../Data/DateConverter';
+import { HandleDate, prettyDate } from '../../Data/DateConverter';
 
 const RightSideBar = () => {
   const { adaptionParsedData } = useSub();
@@ -14,7 +14,6 @@ const RightSideBar = () => {
     setModalContent("ownerInformation");
     setCandidateID(e);
   }
-
   return (
     <div className='w-[25%] h-auto mt-[1px] border-0 border-solid  inline absolute right-0 top-0 shadow-3xl rounded-2xl '>
       <div className='jfRightSideBar-title rounded-2xl rounded-b-none '>
@@ -35,7 +34,7 @@ const RightSideBar = () => {
                   </span>
                   <span className=''>
                     {
-                   HandleDate(sub.created_at)
+                      prettyDate(sub.created_at).formattedDate                   
                     }
                   </span>
                 </div>

@@ -35,7 +35,6 @@ export const SubProvider = ({ children }) => {
         setAdaptionParsedData(candidates)             
         
     }, [adaptionSubmissions, selectedID]);
-    console.log(adaptionParsedData)
     useEffect(() => {
         formAdaptionSubmissions().then(response => {
             setAdaptionSubmissions(response.data.content)

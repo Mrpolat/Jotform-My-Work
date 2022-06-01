@@ -11,7 +11,7 @@ import { AnimalData } from '../../Data/AnimalSubData';
 import PetImage from './PetInformation/PetImage.js';
 
 const MainSection = () => {
-  const { setHandleSelectedID } = useAction();
+  const { setHandleSelectedID,selectedID } = useAction();
   let AnimalAnswerData = AnimalData();
   let { subid } = useParams();
 
@@ -19,7 +19,6 @@ const MainSection = () => {
     setHandleSelectedID(subid);
   }, [setHandleSelectedID, subid]);
 
-  console.log("animalanswerdata",AnimalAnswerData)
   const itemStyling = "p-2"
   return (
     <div className='w-4/5 h-[88%] absolute right-0 inline-block top-[92px]  '>
@@ -38,7 +37,7 @@ const MainSection = () => {
           </div>
           <div className='w-[32%] relative left-[398px] mt-2 mb-4 '>{
               (AnimalAnswerData.AdopStatus === 'Derelict') ? (
-                <PetAdoptionButton style={"AdoptionButton"} path={"AdaptionForm"} name={'Adoption'} />
+                <PetAdoptionButton path={`AdaptionForm/&petId=${selectedID}`} Style={"AdoptionButton"}  name={'Adoption'} />
               ) : <PetBackHomeButton />
             }</div>          
           <div className='w-[62%]  ml-8 p-8 bg-gray-200 rounded-lg border-solid shadow-3xl'> {AnimalAnswerData.AboutAnimal}</div>   

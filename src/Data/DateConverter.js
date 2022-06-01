@@ -1,3 +1,5 @@
+import moment from 'moment';
+import 'moment-timezone';
 //UTF5 den UTF3 Standartına zamanı 7 saat ileriye convert eden fonksiyon
 export const HandleDate = (e) => {
     let year = e.slice(0, 4)
@@ -53,3 +55,14 @@ export const HandleDate = (e) => {
     }
     return (`${year + '-' + month + '-' + day + ' ' + hours + remainder}`)
 }
+
+export const prettyDate = (date) => {
+    const oldDate = moment.tz(date,"America/New_York");
+    const MomDate = oldDate.clone().tz("Europe/Istanbul")
+    const dateStr = MomDate.format('MMM DD, YYYY');
+    const timeStr = MomDate.format('hh:mm A');
+    return {
+      formattedDate: `${dateStr} ${timeStr}`,
+      tokens: [dateStr, timeStr]
+    };
+  };

@@ -10,21 +10,24 @@ import { ActionProvider } from './context/action';
 import { ModalProvider } from './context/modal';
 import { CandidateProvider } from './context/candidate';
 import { DataProvider } from './context/data';
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
 
   <React.StrictMode>
-    <ModalProvider>
-      <UserProvider>
-        <ActionProvider>
-          <SubProvider>
-            <CandidateProvider>
-              <App />
-            </CandidateProvider>
-          </SubProvider>
-        </ActionProvider>
-      </UserProvider>
-    </ModalProvider>
+    <CookiesProvider>
+      <ModalProvider>
+        <UserProvider>
+          <ActionProvider>
+            <SubProvider>
+              <CandidateProvider>
+                <App />
+              </CandidateProvider>
+            </SubProvider>
+          </ActionProvider>
+        </UserProvider>
+      </ModalProvider>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

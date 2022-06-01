@@ -43,7 +43,8 @@ const SideBar = () => {
   }, [checkBoxFilter])
 
   return (
-    <div className='w-1/5 h-[88%] overflow-y-auto absolute inline top-[92px] bg-headerBg text-white'>
+    <div className='w-1/5 h-[88%] overflow-y-auto  absolute inline top-[92px] bg-headerBg text-white'>
+      <div className='box-border w-[100%] overflow-visible'>
       <div className='//zindex'>
         <div>
           <SearchBar
@@ -51,7 +52,7 @@ const SideBar = () => {
             setkeyword={updateInput} />
         </div>
         <div className=" p-3 form-check w-full">
-          <input onChange={() => checkboxHandler('Derelict')}
+          <input  onChange={() => checkboxHandler('Derelict')}
             className="form-check-input appearance-none h-4 p w-4 border border-gray-300 rounded-sm bg-white checked:bg-checkBoxBg checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault"
           />
           <label className="form-check-label inline-block text-white-800" htmlFor="flexCheckDefault">
@@ -73,7 +74,7 @@ const SideBar = () => {
             <Link
               to={sub.id}
               key={sub.id}
-              className={classnames('block h-[50px] bg-lowBlue border-solid border-[1px] text-black rounded-lg m-2', (sub.id === selectedID) && "border-2 border-solid")}>
+              className={classnames('block h-[50px] bg-lowBlue border-solid border-[1px] text-black rounded-lg m-2', (sub.id === selectedID) && "border-none border-solid")}>
               <div className='text-center'>
                 <div className='w-3/4 float-left inline'>
                   <span className='font-bold block text-[17px]'>
@@ -85,7 +86,7 @@ const SideBar = () => {
                 </div>
                 <div className={classnames('w-1/4 h-[50px] relative top-[-1px] right-[-1px] pt-3 rounded-r-lg float-right inline bg-orange',
                   sub.answers[11].answer === 'Derelict' && 'bg-darkOrange',
-                  (sub.id === selectedID) && "rounded-r-none")}>
+                  (sub.id === selectedID) && "rounded-r-none top-[0px]")}>
                   <span className='text-white font-bold'>
                     {(sub.answers[11].answer === 'Derelict') ? ("Derelict") : ("Owned")}
                   </span>
@@ -97,6 +98,7 @@ const SideBar = () => {
         )
 
       }
+      </div>
     </div>
   )
 };

@@ -4,6 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { Login, user } from '../api/api';
 import { useModal } from './modal';
+import { useCookies } from 'react-cookie';
 
 const UserContext = createContext();
 
@@ -11,10 +12,10 @@ export const useUser = () => useContext(UserContext)
 
 export const UserProvider = ({ children }) => {
 
-    const [userName, setUserName] = useState('polat');
-    const [success, setSuccess] = useState(false)//Login requestinin durumunu setler
+    const [userName, setUserName] = useState('Login');
     const [error, setError] = useState()//Login requestinde hatayı setler
-    const handleSuccess = (e) => setSuccess(e);
+    const [cookies, setCookie] = useCookies(['LoginStatus']);
+    const handleLogout = () => setCookie('LoginStatus', 'false', { path: '/' });
     const ModalContext = useModal()
 
     useEffect(() => {
@@ -27,8 +28,7 @@ export const UserProvider = ({ children }) => {
         Login({username:username ,password:password}).then(
             response=>{console.log(response)
                 if(response.data.responseCode===200){
-                    
-                    setSuccess(true);
+                    setCookie('LoginStatus', 'true', { path: '/' });
                     ModalContext.setModalContent('successLogin')
                 }         
                 else{
@@ -36,11 +36,12 @@ export const UserProvider = ({ children }) => {
                 }   
         })
     }      
+    console.log(cookies)
     return (
         <UserContext.Provider value={{
+            cookies,
             userName,
-            success,
-            setSuccess: handleSuccess,
+            setRemoveCookie: handleLogout,
             setLogin: handleLoginData,
             error,
             }}>
