@@ -20,28 +20,30 @@ const RightSideBar = () => {
         Candidates
       </div>
       {
-        (adaptionParsedData.length!==0) ?
+        (adaptionParsedData.length !== 0) ?
           (
-            adaptionParsedData.flat(1).map((sub,index,row) =>
+            adaptionParsedData.flat(1).map((sub, index, row) =>
               <div
                 onClick={() => HandleEvent(sub.id)}
                 to={sub.id}
                 key={sub.id}
-                className={classNames('jfRightSideBar-item ', (index+1===row.length) && ' rounded-b-2xl')}>
+                className={classNames('jfRightSideBar-item ', (index + 1 === row.length) && ' rounded-b-2xl')}>
                 <div className='p-1 pl-3'>
                   <span className='block'>
                     {sub.answers[4].answer.first + " " + sub.answers[4].answer.last}
                   </span>
                   <span className=''>
                     {
-                      prettyDate(sub.created_at).formattedDate                   
+                      prettyDate(sub.created_at).formattedDate
                     }
                   </span>
                 </div>
               </div>
             )
           ) : <div className="jfRightSideBar-item leading-10 rounded-b-2xl pointer-events-none text-center">
-            Bu hayvan için aday bulunamadı
+
+            No Candidates Found
+
           </div>
 
 

@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar';
 import { useAction } from '../../context/action';
 const SideBar = () => {
 
-  const { animalSubmissions, setAdap } = useSub();
+  const { animalSubmissions } = useSub();
   const { selectedID } = useAction();
 
   const [agree, setAgree] = useState(false);

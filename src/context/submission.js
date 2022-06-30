@@ -32,7 +32,8 @@ export const SubProvider = ({ children }) => {
     
     useEffect(() => {
         let candidates = adaptionSubmissions.filter(sub => (sub.answers[14].answer === selectedID && sub.answers[15].answer === "pending"))
-        setAdaptionParsedData(candidates)             
+        setAdaptionParsedData(candidates)              
+        console.log(candidates)
         
     }, [adaptionSubmissions, selectedID]);
     useEffect(() => {

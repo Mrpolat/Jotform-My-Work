@@ -37,38 +37,42 @@ const Header = () => {
         jotformshelter
         <IconPetPaw className="inline pl-2" />
       </Link>
-      <div className={classnames("float-right relative top-3 pr-8", cookies.LoginStatus==='true' && 'loginButton')}>
+      <div className={classnames("float-right relative top-3 pr-8", cookies.LoginStatus === 'true' && 'loginButton')}>
         <button
           className="bg-loginBg text-white p-5 rounded-2xl"
           onClick={() => handleEvent()}
-          style={((cookies.LoginStatus==="true") ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' })} >
+          style={((cookies.LoginStatus === "true") ? { pointerEvents: 'none' } : { pointerEvents: 'Visible' })} >
           {
-            (cookies.LoginStatus==="true") ?
+            (cookies.LoginStatus === "true") ?
               (userName)
               : 'Login'
           }
         </button>
         <div className='drop-down-menu'></div>
-        <div className={classnames("loginContent shadow-3xl bg-white",cookies.LoginStatus==='true' && "")} >
+        <div className={classnames("loginContent shadow-3xl bg-white", cookies.LoginStatus === 'true' && "")} >
           <div className='bg-white mt-[5px] ml-3 h-[40px] w-[180px] rounded-2xl cursor-pointer bg-gray-100 hover:bg-gray-200'
-          onClick={() => setRemoveCookie()}>
+            onClick={() => setRemoveCookie()}>
             <div className='inline pl-4 relative top-1.5'>
-            <IoExitOutline className='inline text-3xl' />
+              <IoExitOutline className='inline text-3xl' />
             </div>
             <span className='float-right pr-4 pt-2.5'>
               Logout
-            </span>   
+            </span>
           </div>
         </div>
       </div>
-      <div id='headerLine'>
-        {/* çizgi */}
-      </div>
-      <div className='float-right relative top-8 pr-8 '>
-        <PetAdoptionButton path={"AnimalForm"} Style={"text-white"} linkStyle={"hover:text-loginBg"}  name={'Animal Form'} />
-      </div>
-      
+      {
+        (cookies.LoginStatus === "true") ? (
+          <div>
+            <div id='headerLine'>
+              {/* çizgi */}
+            </div>
+            <div className='float-right relative top-8 pr-8 '>
 
+              <PetAdoptionButton path={"AnimalForm"} Style={"text-white"} linkStyle={"hover:text-loginBg"} name={'Animal Form'} />
+            </div>
+          </div>) : null
+      }
     </div>
   )
 }

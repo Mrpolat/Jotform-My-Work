@@ -24,7 +24,10 @@ export function AnimalData() {
         AnswerData.OwnerLast = animalParsedData.answers[8].answer.last;
         AnswerData.AdopStatus = animalParsedData.answers[11].answer ;
         AnswerData.PetID = animalParsedData.id;
-        AnswerData.PhoneNumber = animalParsedData.answers[9].answer.full;
+        if(animalParsedData.answers[9].answer.full){
+            AnswerData.PhoneNumber = (animalParsedData.answers[9].answer.full)
+        }
+         else AnswerData.PhoneNumber= animalParsedData.answers[9].answer;
         AnswerData.BreedOf = animalParsedData.answers[6].answer;
         AnswerData.AboutAnimal = animalParsedData.answers[5].answer;
     }
