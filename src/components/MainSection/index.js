@@ -16,10 +16,11 @@ const MainSection = () => {
   const {cookies} = useUser();
   let AnimalAnswerData = AnimalData();
   let { subid } = useParams();
-
+  console.log(subid)
   useEffect(() => {
     setHandleSelectedID(subid);
   }, [setHandleSelectedID, subid]);
+
   const itemStyling = "p-2"
   return (
     <div className='w-4/5 h-[88%] absolute right-0 inline-block top-[92px]  '>
